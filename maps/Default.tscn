@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=53 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -67,6 +67,18 @@ emission_texture = SubResource("ViewportTexture_bd0q3")
 [sub_resource type="QuadMesh" id="QuadMesh_bd0q3"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_kvuol")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_knjwl"]
+viewport_path = NodePath("main_structure/Room2/TVScreen2/SubViewport2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1mvy"]
+resource_local_to_scene = true
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_knjwl")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2dvic"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_j1mvy")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bd0q3"]
 lightmap_size_hint = Vector2i(5, 14)
@@ -246,6 +258,17 @@ size = Vector2i(1024, 768)
 
 [node name="Camera3D" type="Camera3D" parent="main_structure/Room2/TVScreen/SubViewport"]
 transform = Transform3D(-3.09507e-08, -0.706143, 0.708069, -3.08665e-08, 0.708069, 0.706143, -1, 0, -4.37114e-08, -22.5141, 6.2809, 13.7017)
+fov = 100.0
+
+[node name="TVScreen2" type="MeshInstance3D" parent="main_structure/Room2"]
+transform = Transform3D(-1.39275e-07, 0, -1, 0, 2.53033, 0, 3.18624, 0, -4.37114e-08, 34.402, 3.80391, -2.2507)
+mesh = SubResource("QuadMesh_2dvic")
+
+[node name="SubViewport2" type="SubViewport" parent="main_structure/Room2/TVScreen2"]
+size = Vector2i(1024, 768)
+
+[node name="Camera3D" type="Camera3D" parent="main_structure/Room2/TVScreen2/SubViewport2"]
+transform = Transform3D(-3.09507e-08, -0.706143, 0.708069, -3.08665e-08, 0.708069, 0.706143, -1, 8.88178e-15, -4.37114e-08, 3.08894, 5.55093, -4.13921)
 fov = 100.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="main_structure/Room2"]
