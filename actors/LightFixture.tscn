@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy1m62d1fqnj4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7j0i"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i7j0i"]
+material = SubResource("StandardMaterial3D_i7j0i")
+
+[node name="LightFixture" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.96286, 0, 0, 0, 0.152783, 0, 0, 0, 0.197533, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_i7j0i")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0281285, -0.603109, 0)
+light_color = Color(0.9025, 1, 0.87, 1)
+light_energy = 0.3
+light_size = 0.5
+shadow_enabled = true

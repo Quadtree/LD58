@@ -1,0 +1,195 @@
+[gd_scene load_steps=26 format=3 uid="uid://bajwgcfe7i41q"]
+
+[ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
+[ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
+[ext_resource type="LightmapGIData" uid="uid://bhvytro5a30ki" path="res://maps/Default.lmbake" id="2_6jlvn"]
+[ext_resource type="PackedScene" uid="uid://cy1m62d1fqnj4" path="res://actors/LightFixture.tscn" id="2_hlrh3"]
+[ext_resource type="Script" uid="uid://f3lrew87w327" path="res://actors/PlayerCharacter.cs" id="4_gfcby"]
+[ext_resource type="PackedScene" uid="uid://cfw1wwbltfwko" path="res://actors/SlidingDoor.tscn" id="6_o8hxr"]
+[ext_resource type="Texture2D" uid="uid://bn0x77mypanps" path="res://textures/crosshair1.png" id="7_6m16o"]
+[ext_resource type="PackedScene" uid="uid://727swyb5wpck" path="res://actors/Cabinet.tscn" id="8_rxjgb"]
+[ext_resource type="PackedScene" uid="uid://cua2axun1y0ri" path="res://actors/DestructibleLock.tscn" id="9_bd0q3"]
+[ext_resource type="PackedScene" uid="uid://5eawto0w7plv" path="res://actors/LaserPart.tscn" id="9_dfir2"]
+
+[sub_resource type="Environment" id="Environment_6jlvn"]
+background_mode = 1
+tonemap_mode = 3
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hlrh3"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_dfir2"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfir2"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bd0q3"]
+material = SubResource("StandardMaterial3D_dfir2")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adt7c"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kvuol"]
+material = SubResource("StandardMaterial3D_adt7c")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw211"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_knjwl"]
+material = SubResource("StandardMaterial3D_yw211")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bd0q3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_adt7c"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_bd0q3")
+add_uv2 = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dfir2"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bd0q3"]
+viewport_path = NodePath("main_structure/Room2/TVScreen/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvuol"]
+resource_local_to_scene = true
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_bd0q3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bd0q3"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_kvuol")
+
+[node name="Default" type="Node3D"]
+script = ExtResource("1_vnah1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6jlvn")
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+bounces = 6
+directional = true
+generate_probes_subdiv = 4
+light_data = ExtResource("2_6jlvn")
+
+[node name="PlayerCharacter" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.975, 0.529807, 36.8532)
+script = ExtResource("4_gfcby")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568729, 0)
+shape = SubResource("CapsuleShape3D_hlrh3")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true
+
+[node name="DebugHand" type="MeshInstance3D" parent="PlayerCharacter"]
+mesh = SubResource("PrismMesh_dfir2")
+
+[node name="main_structure" parent="." instance=ExtResource("1_q1grt")]
+
+[node name="Room1" type="Node3D" parent="main_structure"]
+
+[node name="LightFixture" parent="main_structure/Room1" instance=ExtResource("2_hlrh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.523, 3.46671, 25.2507)
+
+[node name="LightFixture2" parent="main_structure/Room1" instance=ExtResource("2_hlrh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5462, 3.46671, 25.2507)
+
+[node name="SlidingDoor" parent="main_structure/Room1" instance=ExtResource("6_o8hxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1774, 1.5817, 21.3774)
+
+[node name="Cabinet" parent="main_structure/Room1" instance=ExtResource("8_rxjgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0364, 1.74006, 22.1969)
+
+[node name="LaserPart" parent="main_structure/Room1/Cabinet" instance=ExtResource("9_dfir2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190487, -0.639842, 0.343237)
+PartIDs = Array[int]([0])
+
+[node name="MeshInstance3D" parent="main_structure/Room1/Cabinet/LaserPart" index="0"]
+mesh = SubResource("BoxMesh_bd0q3")
+
+[node name="Cabinet2" parent="main_structure/Room1" instance=ExtResource("8_rxjgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6657, 1.74006, 22.1969)
+
+[node name="LaserPart2" parent="main_structure/Room1/Cabinet2" instance=ExtResource("9_dfir2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0595493, -0.639842, 0.343237)
+PartIDs = Array[int]([1])
+
+[node name="MeshInstance3D" parent="main_structure/Room1/Cabinet2/LaserPart2" index="0"]
+mesh = SubResource("BoxMesh_kvuol")
+
+[node name="Cabinet3" parent="main_structure/Room1" instance=ExtResource("8_rxjgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3685, 1.74006, 22.1969)
+
+[node name="LaserPart3" parent="main_structure/Room1/Cabinet3" instance=ExtResource("9_dfir2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0205116, -0.639842, 0.343237)
+PartIDs = Array[int]([2])
+
+[node name="MeshInstance3D" parent="main_structure/Room1/Cabinet3/LaserPart3" index="0"]
+mesh = SubResource("BoxMesh_knjwl")
+
+[node name="DestructibleLock" parent="main_structure/Room1/Cabinet3" instance=ExtResource("9_bd0q3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84645, 0.164149, -0.767431)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room1"]
+transform = Transform3D(3.27767, 0, 0, 0, 0.336888, 0, 0, 0, 3.17716, -33.1327, 0.594415, 23.0514)
+mesh = SubResource("BoxMesh_adt7c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="main_structure/Room1/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main_structure/Room1/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dfir2")
+
+[node name="Room2" type="Node3D" parent="main_structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3908, 0.24684, 13.7682)
+
+[node name="LightFixture3" parent="main_structure/Room2" instance=ExtResource("2_hlrh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.96381, 3.3268, -7.27394)
+
+[node name="LightFixture7" parent="main_structure/Room2" instance=ExtResource("2_hlrh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10481, 6.83284, -0.311479)
+
+[node name="LightFixture4" parent="main_structure/Room2" instance=ExtResource("2_hlrh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8446, 3.21987, -6.43546)
+
+[node name="LightFixture5" parent="main_structure/Room2" instance=ExtResource("2_hlrh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85748, 3.32432, 5.18785)
+
+[node name="LightFixture6" parent="main_structure/Room2" instance=ExtResource("2_hlrh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8446, 3.21987, 4.17658)
+
+[node name="TVScreen" type="MeshInstance3D" parent="main_structure/Room2"]
+transform = Transform3D(2.50811, 0, 0, 0, 2.03632, 0, 0, 0, 1, 1.29077, 1.64708, -9.96174)
+mesh = SubResource("QuadMesh_bd0q3")
+
+[node name="SubViewport" type="SubViewport" parent="main_structure/Room2/TVScreen"]
+size = Vector2i(1024, 768)
+
+[node name="Camera3D" type="Camera3D" parent="main_structure/Room2/TVScreen/SubViewport"]
+transform = Transform3D(-3.09507e-08, -0.706143, 0.708069, -3.08665e-08, 0.708069, 0.706143, -1, 0, -4.37114e-08, -22.5141, 6.2809, 13.7017)
+fov = 100.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("7_6m16o")
+
+[editable path="main_structure/Room1/Cabinet/LaserPart"]
+[editable path="main_structure/Room1/Cabinet2/LaserPart2"]
+[editable path="main_structure/Room1/Cabinet3/LaserPart3"]

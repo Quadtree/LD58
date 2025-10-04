@@ -1,0 +1,100 @@
+using System;
+using Godot;
+
+public partial class PlayerCharacter : CharacterBody3D
+{
+    [Export]
+    float MouseSensitivity = 1;
+
+    [Export]
+    float MovementSpeed = 1;
+
+    bool Falling = false;
+
+    float CurrentGrabRange;
+
+    public override void _Ready()
+    {
+        Input.MouseMode = Input.MouseModeEnum.Captured;
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        var movementVector = new Vector2(
+            Input.GetAxis("move_left", "move_right"),
+            Input.GetAxis("move_backward", "move_forward")
+        );
+
+        Velocity = ((GlobalTransform.Basis.Z * -movementVector.Y) + (GlobalTransform.Basis.X * movementVector.X)) * 10 * MovementSpeed;
+
+        if (Falling) Velocity += Vector3.Down * 20;
+
+        var initialVelocity = Velocity;
+
+        MoveAndSlide();
+
+        Falling = GetSlideCollisionCount() == 0;
+
+        if (Velocity.Length() <= 0.1f)
+            MotionMode = MotionModeEnum.Floating;
+        else
+            MotionMode = MotionModeEnum.Grounded;
+
+        //GD.Print($"Falling={Falling} initialVelocity={initialVelocity} Velocity={Velocity}");
+
+        var cam = this.FindChildByType<Camera3D>();
+        var grabDragTargetPos = cam.GlobalPosition + cam.GlobalTransform.Basis.Z * -CurrentGrabRange;
+
+        this.FindChildByName<Node3D>("DebugHand").GlobalPosition = grabDragTargetPos;
+
+        foreach (var it in GetTree().CurrentScene.FindChildrenByPredicate<Grabbable>(it => it.IsGrabbed))
+        {
+            var worldGrabPos = it.GlobalTransform * it.LocalGrabPos;
+
+            //if (grabDragTargetPos.DistanceTo(worldGrabPos) > .2f)
+            {
+                var forceDir = (grabDragTargetPos - worldGrabPos) * 200;
+
+                it.ApplyForce(forceDir, worldGrabPos - it.GlobalPosition);
+            }
+        }
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventMouseMotion evt)
+        {
+            RotateY(evt.Relative.X / -500 * MouseSensitivity);
+
+            var cam = this.FindChildByType<Camera3D>();
+
+            cam.Rotation = new Vector3(
+                Util.Clamp(cam.Rotation.X + evt.Relative.Y / -500 * MouseSensitivity, -Mathf.Pi / 2, Mathf.Pi / 2),
+                0,
+                0
+            );
+        }
+
+        if (@event.IsAction("grab"))
+        {
+            var res = Picking.PickAtCursor(this, collisionMask: uint.MaxValue);
+            //GD.Print($"{res.Pos} {res.Hit}");
+
+            if (res.Hit is Grabbable g)
+            {
+                g.Grabbed(res.Pos.Value);
+            }
+
+            CurrentGrabRange = res.Pos.Value.DistanceTo(this.FindChildByType<Camera3D>().GlobalPosition);
+            GD.Print($"CurrentGrabRange={CurrentGrabRange}");
+        }
+
+        if (@event.IsActionReleased("grab"))
+        {
+            foreach (var it in GetTree().CurrentScene.FindChildrenByPredicate<Grabbable>(it => it.IsGrabbed))
+            {
+                it.Released();
+            }
+        }
+    }
+}
