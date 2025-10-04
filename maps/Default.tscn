@@ -181,10 +181,6 @@ mesh = SubResource("PrismMesh_dfir2")
 
 [node name="main_structure" parent="." instance=ExtResource("1_q1grt")]
 
-[node name="StaticBody3D" parent="main_structure/MainStructure" index="0"]
-collision_layer = 2
-collision_mask = 7
-
 [node name="Room1" type="Node3D" parent="main_structure"]
 
 [node name="LightFixture" parent="main_structure/Room1" instance=ExtResource("2_hlrh3")]
@@ -310,6 +306,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31136, 5.55433, -0.0013685
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="main_structure/Room3/Robot1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6455, 2.69191, 0)
+collision_mask = 3
 script = ExtResource("12_yw211")
 MovementSpeed = 0.5
 RotationSpeed = 5.0
@@ -451,7 +448,6 @@ offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("7_6m16o")
 
-[editable path="main_structure"]
 [editable path="main_structure/Room1/Cabinet/LaserPart"]
 [editable path="main_structure/Room1/Cabinet2/LaserPart2"]
 [editable path="main_structure/Room1/Cabinet3/LaserPart3"]
