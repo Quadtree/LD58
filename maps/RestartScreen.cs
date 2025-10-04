@@ -16,7 +16,7 @@ public partial class RestartScreen : Control
     {
         base._Input(@event);
 
-        if (@event is InputEventKey k)
+        if (@event is InputEventKey || @event is InputEventMouseButton)
         {
             if (Cooldown <= 0) GetTree().ChangeSceneToFile("res://maps/Default.tscn");
         }

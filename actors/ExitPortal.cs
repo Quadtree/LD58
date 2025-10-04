@@ -13,7 +13,7 @@ public partial class ExitPortal : Area3D
     {
         base._PhysicsProcess(delta);
 
-        var nearbyArtifacts = GetTree().CurrentScene.FindChildrenByPredicate<Artifact>(it => it.GlobalPosition.DistanceTo(GlobalPosition) < 5).Count();
+        var nearbyArtifacts = GetTree().CurrentScene.FindChildrenByPredicate<Artifact>(it => it.GlobalPosition.DistanceTo(GlobalPosition) < 5).DistinctBy(it => it.ArtifactID).Count();
 
         var light = this.FindChildByType<OmniLight3D>();
         light.LightEnergy = nearbyArtifacts * .33f;
@@ -21,6 +21,10 @@ public partial class ExitPortal : Area3D
         if (GetOverlappingBodies().OfType<PlayerCharacter>().Any())
         {
             GD.Print("PC is in area");
+            if (nearbyArtifacts >= 3)
+            {
+                GetTree().ChangeSceneToFile("res://maps/WinScreen.tscn");
+            }
         }
     }
 
