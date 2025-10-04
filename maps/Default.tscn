@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=55 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://727swyb5wpck" path="res://actors/Cabinet.tscn" id="8_rxjgb"]
 [ext_resource type="PackedScene" uid="uid://cua2axun1y0ri" path="res://actors/DestructibleLock.tscn" id="9_bd0q3"]
 [ext_resource type="PackedScene" uid="uid://5eawto0w7plv" path="res://actors/LaserPart.tscn" id="9_dfir2"]
+[ext_resource type="PackedScene" uid="uid://bbam43epalglt" path="res://actors/Artifact3.tscn" id="10_2dvic"]
 [ext_resource type="Script" uid="uid://3k1rpr8hxx6i" path="res://actors/DestructibleRope.cs" id="10_adt7c"]
 [ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="11_kvuol"]
 [ext_resource type="Script" uid="uid://bw2vvhfg4lj4d" path="res://actors/Robot.cs" id="12_yw211"]
@@ -225,11 +226,23 @@ mesh = SubResource("BoxMesh_knjwl")
 [node name="DestructibleLock" parent="main_structure/Room1/Cabinet3" instance=ExtResource("9_bd0q3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84645, 0.164149, -0.767431)
 
+[node name="Cabinet4" parent="main_structure/Room1" instance=ExtResource("8_rxjgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9812, 1.74006, 22.1969)
+
+[node name="DestructibleLock" parent="main_structure/Room1/Cabinet4" instance=ExtResource("9_bd0q3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84645, 0.164149, -0.767431)
+
+[node name="Artifact1" parent="main_structure/Room1/Cabinet4" instance=ExtResource("10_2dvic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0905151, -0.490179, 0.17145)
+ArtifactID = 1
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room1"]
 transform = Transform3D(3.27767, 0, 0, 0, 0.336888, 0, 0, 0, 3.17716, -33.1327, 0.594415, 23.0514)
 mesh = SubResource("BoxMesh_adt7c")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="main_structure/Room1/MeshInstance3D"]
+collision_layer = 2
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="main_structure/Room1/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_dfir2")
@@ -275,7 +288,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_adt7c")
 
 [node name="Artifact2" type="RigidBody3D" parent="main_structure/Room2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1714, 5.92032, -1.1827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1714, 4.94223, -1.1827)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true
@@ -286,11 +299,11 @@ script = ExtResource("11_kvuol")
 ArtifactID = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room2/Artifact2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0494, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0432615, 0)
 mesh = SubResource("BoxMesh_2dvic")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="main_structure/Room2/Artifact2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0494, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0432615, 0)
 shape = SubResource("ConvexPolygonShape3D_knjwl")
 
 [node name="Room3" type="Node3D" parent="main_structure"]
@@ -413,10 +426,10 @@ transform = Transform3D(-3.09507e-08, -0.706143, 0.708069, -3.08665e-08, 0.70806
 fov = 100.0
 
 [node name="Room4" type="Node3D" parent="main_structure"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91115, 0, 32.3883)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91115, 2.68335, 32.3883)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="main_structure/Room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12549, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04673, 0)
 light_color = Color(0.353124, 0.452074, 0.999992, 1)
 light_energy = 4.0
 omni_range = 15.0

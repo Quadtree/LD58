@@ -42,7 +42,7 @@ public partial class Robot : CharacterBody3D
         else
             MotionMode = MotionModeEnum.Grounded;
 
-        GD.Print(GlobalPosition);
+        //GD.Print(GlobalPosition);
 
         // if (Mathf.Abs(robotControl.X) > 0.01f)
         // {

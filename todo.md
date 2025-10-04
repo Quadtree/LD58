@@ -1,6 +1,4 @@
 # TODO
-- Robot in room 3
-- Dropper in supply room for room 3
 - Portal room
 - Win when you place all 3 artifacts in portal
 - Mirrors in room 2
@@ -12,3 +10,5 @@
 
 # DONE
 - Destructible dropper in room 2
+- Robot in room 3
+- Dropper in supply room for room 3

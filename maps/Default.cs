@@ -50,6 +50,21 @@ public partial class Default : Node3D
                 var pp = GetTree().CurrentScene.FindChildByName<Node3D>("Room3");
                 this.FindChildByType<PlayerCharacter>().GlobalPosition = pp.GlobalPosition + new Vector3(0, 2.6f, 0);
             }
+
+            // cheat_all_artifacts_to_portal_room
+
+            if (evt2.IsActionPressed("cheat_all_artifacts_to_portal_room") && OS.IsDebugBuild())
+            {
+                var d = GetTree().CurrentScene.FindChildByType<StoreroomDispenser>();
+                d.Dispense();
+
+                var pp = GetTree().CurrentScene.FindChildByName<Node3D>("Room4");
+                foreach (var it in GetTree().CurrentScene.FindChildrenByType<Artifact>())
+                {
+                    GD.Print($"Moving {it} to portal room at {pp.GlobalPosition}");
+                    it.GlobalPosition = pp.GlobalPosition;
+                }
+            }
         }
     }
 }
