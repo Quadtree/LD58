@@ -79,7 +79,7 @@ public partial class PlayerCharacter : CharacterBody3D
 
         if (@event.IsAction("grab"))
         {
-            var res = Picking.PickAtCursor(this, collisionMask: 0x4 | 0x2);
+            var res = Picking.PickAtCursor(this, collisionMask: uint.MaxValue);
             //GD.Print($"{res.Pos} {res.Hit}");
 
             if (res.Hit is Grabbable g)
