@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Godot;
 
 public partial class PlayerCharacter : CharacterBody3D
@@ -60,6 +61,20 @@ public partial class PlayerCharacter : CharacterBody3D
                 it.GlobalRotation = cam.GlobalRotation;
             }
         }
+
+        // var visibleLights = 5;
+
+        // foreach (var it in GetTree().CurrentScene.FindChildrenByType<OmniLight3D>().OrderBy(it => it.GlobalPosition.DistanceSquaredTo(GlobalPosition)))
+        // {
+        //     if (visibleLights-- > 0)
+        //     {
+        //         it.Visible = true;
+        //     }
+        //     else
+        //     {
+        //         it.Visible = false;
+        //     }
+        // }
     }
 
     public override void _Input(InputEvent @event)
