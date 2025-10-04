@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=54 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="11_kvuol"]
 [ext_resource type="Script" uid="uid://bw2vvhfg4lj4d" path="res://actors/Robot.cs" id="12_yw211"]
 [ext_resource type="PackedScene" uid="uid://pmk527dj7sw7" path="res://meshes/robot_body.glb" id="13_knjwl"]
+[ext_resource type="Script" uid="uid://ccyeyrx6kan6y" path="res://actors/StoreroomDispenser.cs" id="14_j1mvy"]
 
 [sub_resource type="Environment" id="Environment_6jlvn"]
 background_mode = 1
@@ -428,9 +429,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99841, 5.55433, 5.68563)
 [node name="LightFixture3" parent="main_structure/Storeroom" instance=ExtResource("2_hlrh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99841, 5.55433, -2.36753)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Storeroom"]
+[node name="StoreroomDispenser" type="MeshInstance3D" parent="main_structure/Storeroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90806, 5.21768, 0)
 mesh = SubResource("CylinderMesh_knjwl")
+script = ExtResource("14_j1mvy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
