@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=37 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://5eawto0w7plv" path="res://actors/LaserPart.tscn" id="9_dfir2"]
 [ext_resource type="Script" uid="uid://3k1rpr8hxx6i" path="res://actors/DestructibleRope.cs" id="10_adt7c"]
 [ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="11_kvuol"]
+[ext_resource type="Script" uid="uid://bw2vvhfg4lj4d" path="res://actors/Robot.cs" id="12_yw211"]
 
 [sub_resource type="Environment" id="Environment_6jlvn"]
 background_mode = 1
@@ -83,11 +84,23 @@ size = Vector3(0.6, 0.2, 0.6)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_knjwl"]
 points = PackedVector3Array(-0.3, -0.1, -0.3, -0.3, 0.1, -0.3, 0.3, -0.1, -0.3, -0.3, -0.1, 0.3, -0.3, 0.1, 0.3, 0.3, 0.1, -0.3, 0.3, -0.1, 0.3, 0.3, 0.1, 0.3)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yw211"]
+rough = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_j1mvy"]
+lightmap_size_hint = Vector2i(12, 14)
+add_uv2 = true
 size = Vector3(0.6, 0.3, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2dvic"]
-points = PackedVector3Array(0.3, 0.15, 0.5, 0.3, -0.15, 0.5, 0.3, 0.15, -0.5, -0.3, 0.15, 0.5, -0.3, -0.15, 0.5, 0.3, -0.15, -0.5, -0.3, 0.15, -0.5, -0.3, -0.15, -0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_2dvic"]
+size = Vector3(0.8, 0.6, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lr4ce"]
+lightmap_size_hint = Vector2i(8, 7)
+add_uv2 = true
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.2
 
 [node name="Default" type="Node3D"]
 script = ExtResource("1_vnah1")
@@ -96,7 +109,6 @@ script = ExtResource("1_vnah1")
 environment = SubResource("Environment_6jlvn")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
-quality = 3
 bounces = 6
 directional = true
 light_data = ExtResource("2_6jlvn")
@@ -239,34 +251,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2709, 5.55433, -0.00136852)
 [node name="LightFixture2" parent="main_structure/Room3" instance=ExtResource("2_hlrh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31136, 5.55433, -0.00136852)
 
-[node name="VehicleBody3D" type="VehicleBody3D" parent="main_structure/Room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28978, 0)
+[node name="Robot1" type="Node3D" parent="main_structure/Room3"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room3/VehicleBody3D"]
+[node name="RigidBody3D" type="RigidBody3D" parent="main_structure/Room3/Robot1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6455, 2.69191, 0)
+physics_material_override = SubResource("PhysicsMaterial_yw211")
+linear_damp_mode = 1
+linear_damp = 10.0
+angular_damp_mode = 1
+angular_damp = 10.0
+script = ExtResource("12_yw211")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room3/Robot1/RigidBody3D"]
+gi_mode = 2
 mesh = SubResource("BoxMesh_j1mvy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="main_structure/Room3/VehicleBody3D"]
-shape = SubResource("ConvexPolygonShape3D_2dvic")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main_structure/Room3/Robot1/RigidBody3D"]
+shape = SubResource("BoxShape3D_2dvic")
 
-[node name="VehicleWheel3D" type="VehicleWheel3D" parent="main_structure/Room3/VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520591, -0.138604, -0.470019)
-wheel_radius = 0.2
-suspension_travel = 0.1
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="main_structure/Room3/Robot1/RigidBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.360714, 0, -0.3213)
+gi_mode = 2
+mesh = SubResource("CylinderMesh_lr4ce")
 
-[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="main_structure/Room3/VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520591, -0.138604, 0.489283)
-wheel_radius = 0.2
-suspension_travel = 0.1
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="main_structure/Room3/Robot1/RigidBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.360714, 0, 0.382449)
+gi_mode = 2
+mesh = SubResource("CylinderMesh_lr4ce")
 
-[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="main_structure/Room3/VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38115, -0.138604, 0.489283)
-wheel_radius = 0.2
-suspension_travel = 0.1
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="main_structure/Room3/Robot1/RigidBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.332059, 0, -0.3213)
+gi_mode = 2
+mesh = SubResource("CylinderMesh_lr4ce")
 
-[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="main_structure/Room3/VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38115, -0.138604, -0.474377)
-wheel_radius = 0.2
-suspension_travel = 0.1
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="main_structure/Room3/Robot1/RigidBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.332059, 0, 0.382449)
+gi_mode = 2
+mesh = SubResource("CylinderMesh_lr4ce")
 
 [node name="Room4" type="Node3D" parent="main_structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91115, 0, 32.3883)
