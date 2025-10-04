@@ -305,7 +305,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31136, 5.55433, -0.0013685
 [node name="Robot1" type="Node3D" parent="main_structure/Room3"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="main_structure/Room3/Robot1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6455, 2.69191, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6455, 3.93837, 0)
 collision_mask = 3
 script = ExtResource("12_yw211")
 MovementSpeed = 0.5
@@ -349,6 +349,8 @@ skeleton = NodePath("")
 transform = Transform3D(0.481612, 0, 0, 0, 0.481612, 0, 0, 0, 0.481612, 0, 0.175764, 0)
 
 [node name="DumpBody" type="CharacterBody3D" parent="main_structure/Room3/Robot1/CharacterBody3D"]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="main_structure/Room3/Robot1/CharacterBody3D/DumpBody"]
 transform = Transform3D(0.481612, 0, 0, 0, 0.481612, 0, 0, 0, 0.481612, 0, 0.175764, 0)
