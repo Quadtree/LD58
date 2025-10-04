@@ -1,5 +1,6 @@
 # TODO
 - Mirrors in room 2
+- Buttons to control the robot
 - Failsafe in case something falls through the floor
 - Start sequence
 - Sound
