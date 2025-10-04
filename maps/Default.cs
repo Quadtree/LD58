@@ -3,6 +3,15 @@ using Godot;
 
 public partial class Default : Node3D
 {
+    public override void _Ready()
+    {
+        base._Ready();
+
+        var sb = this.FindChildByName<Node3D>("main_structure").FindChildByType<StaticBody3D>();
+        sb.CollisionLayer = 3;
+        sb.CollisionMask = 3;
+    }
+
     public override void _UnhandledInput(InputEvent @event)
     {
         if (@event is InputEventKey evt2)
