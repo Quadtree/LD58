@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj7hx7peihawe"]
+[gd_scene load_steps=4 format=3 uid="uid://cj7hx7peihawe"]
 
 [ext_resource type="LabelSettings" uid="uid://bokkbmd0v8a8j" path="res://ui/BigTitleFont.tres" id="1_e2u21"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_e2u21"]
-font_size = 64
+[ext_resource type="Script" uid="uid://dak83obpx4dvr" path="res://maps/RestartScreen.cs" id="1_ko2vh"]
+[ext_resource type="LabelSettings" uid="uid://bcp0yh8gsy3ov" path="res://ui/MediumFont.tres" id="3_2lfxp"]
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -12,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ko2vh")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -33,6 +33,6 @@ anchor_bottom = 0.684
 text = "You've made it off of Station 9! There's no telling where the portal goes, but it's probably Station 10.
 
 Press any key to play again!"
-label_settings = SubResource("LabelSettings_e2u21")
+label_settings = ExtResource("3_2lfxp")
 horizontal_alignment = 1
 vertical_alignment = 1
