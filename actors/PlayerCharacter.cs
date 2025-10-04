@@ -87,7 +87,11 @@ public partial class PlayerCharacter : CharacterBody3D
                 g.Grabbed(res.Pos.Value);
 
                 CurrentGrabRange = res.Pos.Value.DistanceTo(this.FindChildByType<Camera3D>().GlobalPosition);
-                GD.Print($"CurrentGrabRange={CurrentGrabRange}");
+                GD.Print($"grabbed={res.Hit} CurrentGrabRange={CurrentGrabRange}");
+            }
+            else
+            {
+                GD.Print($"Failed to grab anything, thing hit was {res.Hit} {res.Hit?.Name}");
             }
         }
 

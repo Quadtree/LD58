@@ -18,12 +18,13 @@ public partial class Grabbable : RigidBody3D
     {
         base._Ready();
 
-        GD.Print("Grabbable._Ready");
-
         OrigAngularDamp = AngularDamp;
         OrigLinearDamp = LinearDamp;
 
         CollisionLayer |= 0x4;
+        CollisionMask |= 0x4;
+
+        GD.Print($"Grabbable._Ready CollisionLayer={CollisionLayer}");
     }
 
     public void Grabbed(Vector3 worldPos)
