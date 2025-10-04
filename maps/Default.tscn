@@ -310,7 +310,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31136, 5.55433, -0.0013685
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="main_structure/Room3/Robot1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6455, 2.69191, 0)
-collision_mask = 7
 script = ExtResource("12_yw211")
 MovementSpeed = 0.5
 RotationSpeed = 5.0

@@ -44,6 +44,12 @@ public partial class Default : Node3D
                 GetTree().CurrentScene.AddChild(laser);
                 laser.GlobalPosition = pp.GlobalPosition;
             }
+
+            if (evt2.IsActionPressed("cheat_into_room_3") && OS.IsDebugBuild())
+            {
+                var pp = GetTree().CurrentScene.FindChildByName<Node3D>("Room3");
+                this.FindChildByType<PlayerCharacter>().GlobalPosition = pp.GlobalPosition + new Vector3(0, 2.6f, 0);
+            }
         }
     }
 }
