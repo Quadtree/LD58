@@ -1,38 +1,58 @@
 using System;
 using Godot;
 
-public partial class Robot : RigidBody3D
+public partial class Robot : CharacterBody3D
 {
+    [Export]
+    float MovementSpeed = 1;
+
+    bool Falling;
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
 
-        var robotControl = new Vector2();
+        var movementVector = new Vector2();
 
         if (OS.IsDebugBuild())
         {
-            robotControl = new Vector2(
+            movementVector = new Vector2(
                 Input.GetAxis("cheat_robot_left", "cheat_robot_right"),
                 Input.GetAxis("cheat_robot_backward", "cheat_robot_forward")
             );
         }
 
-        if (Mathf.Abs(robotControl.X) > 0.01f)
-        {
-            AngularVelocity = new Vector3(
-                AngularVelocity.X,
-                robotControl.X * -10f,
-                AngularVelocity.Z
-            );
-            AxisLockAngularY = false;
-        }
+        Velocity = ((GlobalTransform.Basis.Z * -movementVector.Y) + (GlobalTransform.Basis.X * movementVector.X)) * 10 * MovementSpeed;
+
+        if (Falling) Velocity += Vector3.Down * 20;
+
+        var initialVelocity = Velocity;
+
+        MoveAndSlide();
+
+        Falling = GetSlideCollisionCount() == 0;
+
+        if (Velocity.Length() <= 0.1f)
+            MotionMode = MotionModeEnum.Floating;
         else
-        {
-            AxisLockAngularY = true;
-        }
+            MotionMode = MotionModeEnum.Grounded;
 
-        AddConstantCentralForce(-GlobalBasis.Z * robotControl.Y);
+        // if (Mathf.Abs(robotControl.X) > 0.01f)
+        // {
+        //     AngularVelocity = new Vector3(
+        //         AngularVelocity.X,
+        //         robotControl.X * -10f,
+        //         AngularVelocity.Z
+        //     );
+        //     AxisLockAngularY = false;
+        // }
+        // else
+        // {
+        //     AxisLockAngularY = true;
+        // }
 
-        GD.Print(AngularVelocity);
+        // AddConstantCentralForce(-GlobalBasis.Z * robotControl.Y);
+
+        // GD.Print(AngularVelocity);
     }
 }
