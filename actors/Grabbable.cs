@@ -18,6 +18,8 @@ public partial class Grabbable : RigidBody3D
     {
         OrigAngularDamp = AngularDamp;
         OrigLinearDamp = LinearDamp;
+
+        CollisionLayer |= 0x4;
     }
 
     public void Grabbed(Vector3 worldPos)

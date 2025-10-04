@@ -79,16 +79,16 @@ public partial class PlayerCharacter : CharacterBody3D
 
         if (@event.IsAction("grab"))
         {
-            var res = Picking.PickAtCursor(this, collisionMask: uint.MaxValue);
+            var res = Picking.PickAtCursor(this, collisionMask: 0x4 | 0x2);
             //GD.Print($"{res.Pos} {res.Hit}");
 
             if (res.Hit is Grabbable g)
             {
                 g.Grabbed(res.Pos.Value);
-            }
 
-            CurrentGrabRange = res.Pos.Value.DistanceTo(this.FindChildByType<Camera3D>().GlobalPosition);
-            GD.Print($"CurrentGrabRange={CurrentGrabRange}");
+                CurrentGrabRange = res.Pos.Value.DistanceTo(this.FindChildByType<Camera3D>().GlobalPosition);
+                GD.Print($"CurrentGrabRange={CurrentGrabRange}");
+            }
         }
 
         if (@event.IsActionReleased("grab"))
