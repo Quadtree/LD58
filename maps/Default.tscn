@@ -181,6 +181,10 @@ mesh = SubResource("PrismMesh_dfir2")
 
 [node name="main_structure" parent="." instance=ExtResource("1_q1grt")]
 
+[node name="StaticBody3D" parent="main_structure/MainStructure" index="0"]
+collision_layer = 2
+collision_mask = 7
+
 [node name="Room1" type="Node3D" parent="main_structure"]
 
 [node name="LightFixture" parent="main_structure/Room1" instance=ExtResource("2_hlrh3")]
@@ -449,6 +453,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("7_6m16o")
 
+[editable path="main_structure"]
 [editable path="main_structure/Room1/Cabinet/LaserPart"]
 [editable path="main_structure/Room1/Cabinet2/LaserPart2"]
 [editable path="main_structure/Room1/Cabinet3/LaserPart3"]
