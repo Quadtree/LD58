@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=59 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bw2vvhfg4lj4d" path="res://actors/Robot.cs" id="12_yw211"]
 [ext_resource type="PackedScene" uid="uid://pmk527dj7sw7" path="res://meshes/robot_body.glb" id="13_knjwl"]
 [ext_resource type="Script" uid="uid://ccyeyrx6kan6y" path="res://actors/StoreroomDispenser.cs" id="14_j1mvy"]
+[ext_resource type="Script" uid="uid://dl7d4plkf5b7n" path="res://actors/ExitPortal.cs" id="15_lr4ce"]
 
 [sub_resource type="Environment" id="Environment_6jlvn"]
 background_mode = 1
@@ -150,6 +151,22 @@ emission_texture = SubResource("ViewportTexture_knjwl")
 [sub_resource type="QuadMesh" id="QuadMesh_2dvic"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_j1mvy")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2dvic"]
+height = 0.5
+radius = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lr4ce"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.454902)
+emission_enabled = true
+emission = Color(0.192364, 0.422229, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gqor7"]
+material = SubResource("StandardMaterial3D_lr4ce")
+top_radius = 1.5
+bottom_radius = 1.5
+height = 0.5
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_knjwl"]
 top_radius = 0.4
@@ -430,8 +447,21 @@ fov = 100.0
 [node name="Room4" type="Node3D" parent="main_structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91115, 2.68335, 32.3883)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="main_structure/Room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04673, 0)
+[node name="Area3D" type="Area3D" parent="main_structure/Room4"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("15_lr4ce")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main_structure/Room4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.254347, 1.17038, 4.06732)
+shape = SubResource("CylinderShape3D_2dvic")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room4/Area3D/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_gqor7")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="main_structure/Room4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04673, 3.50467)
 light_color = Color(0.353124, 0.452074, 0.999992, 1)
 distance_fade_enabled = true
 distance_fade_begin = 20.0
