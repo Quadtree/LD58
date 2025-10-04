@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwupeeargrc0g"]
+
+[ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="1_eyihl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yw211"]
+lightmap_size_hint = Vector2i(6, 9)
+add_uv2 = true
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eyihl"]
+points = PackedVector3Array(0.1, 0.1, 0.1, 0.1, 0.1, -0.1, -0.1, 0.1, 0.1, 0.1, -0.1, 0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1)
+
+[node name="Artifact2" type="RigidBody3D"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_eyihl")
+ArtifactID = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0268505, 0)
+mesh = SubResource("BoxMesh_yw211")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0268505, 0)
+shape = SubResource("ConvexPolygonShape3D_eyihl")
