@@ -6,6 +6,8 @@ public partial class Laser : Grabbable
 {
     Node3D[] BeamSegments;
 
+    public override bool IsRotatable => true;
+
     public override void _Ready()
     {
         base._Ready();

@@ -12,6 +12,8 @@ public partial class Grabbable : RigidBody3D
 
     const float OrigDampReturnRate = 0.15f;
 
+    public virtual bool IsRotatable => false;
+
     public override void _Ready()
     {
         OrigAngularDamp = AngularDamp;
