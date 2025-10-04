@@ -21,7 +21,7 @@ public partial class Grabbable : RigidBody3D
         OrigAngularDamp = AngularDamp;
         OrigLinearDamp = LinearDamp;
 
-        CollisionLayer = ColGroup.GRABABLE | ColGroup.WALLS;
+        CollisionLayer = ColGroup.GRABABLE;
         CollisionMask = ColGroup.GRABABLE | ColGroup.WALLS;
 
         GD.Print($"Grabbable._Ready CollisionLayer={CollisionLayer}");
