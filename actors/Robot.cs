@@ -6,6 +6,9 @@ public partial class Robot : CharacterBody3D
     [Export]
     float MovementSpeed = 1;
 
+    [Export]
+    float RotationSpeed = 1;
+
     bool Falling;
 
     public override void _PhysicsProcess(double delta)
@@ -22,11 +25,13 @@ public partial class Robot : CharacterBody3D
             );
         }
 
-        Velocity = ((GlobalTransform.Basis.Z * -movementVector.Y) + (GlobalTransform.Basis.X * movementVector.X)) * 10 * MovementSpeed;
+        Velocity = (GlobalTransform.Basis.Z * -movementVector.Y) * 10 * MovementSpeed;
 
         if (Falling) Velocity += Vector3.Down * 20;
 
         var initialVelocity = Velocity;
+
+        RotateY(movementVector.X * (float)delta * -RotationSpeed);
 
         MoveAndSlide();
 
