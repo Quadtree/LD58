@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=34 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -82,6 +82,12 @@ size = Vector3(0.6, 0.2, 0.6)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_knjwl"]
 points = PackedVector3Array(-0.3, -0.1, -0.3, -0.3, 0.1, -0.3, 0.3, -0.1, -0.3, -0.3, -0.1, 0.3, -0.3, 0.1, 0.3, 0.3, 0.1, -0.3, 0.3, -0.1, 0.3, 0.3, 0.1, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j1mvy"]
+size = Vector3(0.6, 0.3, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2dvic"]
+points = PackedVector3Array(0.3, 0.15, 0.5, 0.3, -0.15, 0.5, 0.3, 0.15, -0.5, -0.3, 0.15, 0.5, -0.3, -0.15, 0.5, 0.3, -0.15, -0.5, -0.3, 0.15, -0.5, -0.3, -0.15, -0.5)
 
 [node name="Default" type="Node3D"]
 script = ExtResource("1_vnah1")
@@ -232,6 +238,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2709, 5.55433, -0.00136852)
 
 [node name="LightFixture2" parent="main_structure/Room3" instance=ExtResource("2_hlrh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31136, 5.55433, -0.00136852)
+
+[node name="VehicleBody3D" type="VehicleBody3D" parent="main_structure/Room3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28978, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room3/VehicleBody3D"]
+mesh = SubResource("BoxMesh_j1mvy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main_structure/Room3/VehicleBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2dvic")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="main_structure/Room3/VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520591, -0.138604, -0.470019)
+wheel_radius = 0.2
+suspension_travel = 0.1
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="main_structure/Room3/VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520591, -0.138604, 0.489283)
+wheel_radius = 0.2
+suspension_travel = 0.1
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="main_structure/Room3/VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38115, -0.138604, 0.489283)
+wheel_radius = 0.2
+suspension_travel = 0.1
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="main_structure/Room3/VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38115, -0.138604, -0.474377)
+wheel_radius = 0.2
+suspension_travel = 0.1
 
 [node name="Room4" type="Node3D" parent="main_structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91115, 0, 32.3883)
