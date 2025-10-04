@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=32 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cua2axun1y0ri" path="res://actors/DestructibleLock.tscn" id="9_bd0q3"]
 [ext_resource type="PackedScene" uid="uid://5eawto0w7plv" path="res://actors/LaserPart.tscn" id="9_dfir2"]
 [ext_resource type="Script" uid="uid://3k1rpr8hxx6i" path="res://actors/DestructibleRope.cs" id="10_adt7c"]
+[ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="11_kvuol"]
 
 [sub_resource type="Environment" id="Environment_6jlvn"]
 background_mode = 1
@@ -212,6 +213,8 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+script = ExtResource("11_kvuol")
+ArtifactID = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room2/Artifact2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0494, 0)
