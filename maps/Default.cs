@@ -8,8 +8,8 @@ public partial class Default : Node3D
         base._Ready();
 
         var sb = this.FindChildByName<Node3D>("main_structure").FindChildByType<StaticBody3D>();
-        sb.CollisionLayer = 0x1 | 0x2;
-        sb.CollisionMask = 0x1 | 0x2;
+        sb.CollisionLayer = ColGroup.CHARACTERS | ColGroup.WALLS;
+        sb.CollisionMask = ColGroup.CHARACTERS | ColGroup.WALLS;
     }
 
     public override void _UnhandledInput(InputEvent @event)
