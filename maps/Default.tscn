@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=53 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -68,18 +68,6 @@ emission_texture = SubResource("ViewportTexture_bd0q3")
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_kvuol")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_knjwl"]
-viewport_path = NodePath("main_structure/Room2/TVScreen2/SubViewport2")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1mvy"]
-resource_local_to_scene = true
-emission_enabled = true
-emission_texture = SubResource("ViewportTexture_knjwl")
-
-[sub_resource type="QuadMesh" id="QuadMesh_2dvic"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_j1mvy")
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_bd0q3"]
 lightmap_size_hint = Vector2i(5, 14)
 add_uv2 = true
@@ -146,6 +134,23 @@ points = PackedVector3Array(-0.615873, -0.715873, 0, -0.459623, 0.690377, 1, -0.
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bu02h"]
 points = PackedVector3Array(-0.488802, 0.712698, -0.857174, -0.615749, -0.715873, -1.01587, 0.0189855, -0.715873, -1.01587, -0.615749, 0.712698, -1.01587, -0.6, -0.680428, -0.861111, 0.0189855, 0.712698, -0.888914, 0.0119329, -0.7, -0.858937, 0.0189855, 0.712698, -1.01587, 0.0481491, -0.2268, -0.849882, -0.6, 0.677253, -0.861111)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_knjwl"]
+viewport_path = NodePath("main_structure/Room3/TVScreen2/SubViewport2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1mvy"]
+resource_local_to_scene = true
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_knjwl")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2dvic"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_j1mvy")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_knjwl"]
+top_radius = 0.4
+bottom_radius = 0.2
+height = 1.0
 
 [node name="Default" type="Node3D"]
 script = ExtResource("1_vnah1")
@@ -255,17 +260,6 @@ size = Vector2i(1024, 768)
 
 [node name="Camera3D" type="Camera3D" parent="main_structure/Room2/TVScreen/SubViewport"]
 transform = Transform3D(-3.09507e-08, -0.706143, 0.708069, -3.08665e-08, 0.708069, 0.706143, -1, 0, -4.37114e-08, -22.5141, 6.2809, 13.7017)
-fov = 100.0
-
-[node name="TVScreen2" type="MeshInstance3D" parent="main_structure/Room2"]
-transform = Transform3D(-1.39275e-07, 0, -1, 0, 2.53033, 0, 3.18624, 0, -4.37114e-08, 34.402, 3.80391, -2.2507)
-mesh = SubResource("QuadMesh_2dvic")
-
-[node name="SubViewport2" type="SubViewport" parent="main_structure/Room2/TVScreen2"]
-size = Vector2i(1024, 768)
-
-[node name="Camera3D" type="Camera3D" parent="main_structure/Room2/TVScreen2/SubViewport2"]
-transform = Transform3D(-3.09507e-08, -0.706143, 0.708069, -3.08665e-08, 0.708069, 0.706143, -1, 8.88178e-15, -4.37114e-08, 3.08894, 5.55093, -4.13921)
 fov = 100.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="main_structure/Room2"]
@@ -404,6 +398,18 @@ shape = SubResource("ConvexPolygonShape3D_7t7x6")
 transform = Transform3D(0.481612, 0, 0, 0, 0.481612, 0, 0, 0, 0.481612, 0, 0.175764, 0)
 shape = SubResource("ConvexPolygonShape3D_bu02h")
 
+[node name="TVScreen2" type="MeshInstance3D" parent="main_structure/Room3"]
+transform = Transform3D(-1.39275e-07, 0, -1, 0, 2.53033, 0, 3.18624, 0, -4.37114e-08, 8.08027, 4.05075, -0.532605)
+mesh = SubResource("QuadMesh_2dvic")
+skeleton = NodePath("../../Room2")
+
+[node name="SubViewport2" type="SubViewport" parent="main_structure/Room3/TVScreen2"]
+size = Vector2i(1024, 768)
+
+[node name="Camera3D" type="Camera3D" parent="main_structure/Room3/TVScreen2/SubViewport2"]
+transform = Transform3D(-3.09507e-08, -0.706143, 0.708069, -3.08665e-08, 0.708069, 0.706143, -1, 8.88178e-15, -4.37114e-08, 3.08894, 5.55093, -4.13921)
+fov = 100.0
+
 [node name="Room4" type="Node3D" parent="main_structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91115, 0, 32.3883)
 
@@ -421,6 +427,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99841, 5.55433, 5.68563)
 
 [node name="LightFixture3" parent="main_structure/Storeroom" instance=ExtResource("2_hlrh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99841, 5.55433, -2.36753)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Storeroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90806, 5.21768, 0)
+mesh = SubResource("CylinderMesh_knjwl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
