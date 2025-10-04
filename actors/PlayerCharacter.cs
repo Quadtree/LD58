@@ -51,11 +51,13 @@ public partial class PlayerCharacter : CharacterBody3D
         {
             var worldGrabPos = it.GlobalTransform * it.LocalGrabPos;
 
-            //if (grabDragTargetPos.DistanceTo(worldGrabPos) > .2f)
-            {
-                var forceDir = (grabDragTargetPos - worldGrabPos) * 200;
+            var forceDir = (grabDragTargetPos - worldGrabPos) * 200;
 
-                it.ApplyForce(forceDir, worldGrabPos - it.GlobalPosition);
+            it.ApplyForce(forceDir, worldGrabPos - it.GlobalPosition);
+
+            if (it.IsRotatable)
+            {
+                it.GlobalRotation = cam.GlobalRotation;
             }
         }
     }

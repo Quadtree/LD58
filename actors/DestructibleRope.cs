@@ -7,7 +7,7 @@ public partial class DestructibleRope : Destructible
     {
         base.Destructed();
 
-        var crb = GetParent().GetParent().FindChildByType<RigidBody3D>();
+        var crb = GetTree().CurrentScene.FindChildByName<RigidBody3D>("Artifact2");
         crb.AxisLockAngularX = false;
         crb.AxisLockAngularY = false;
         crb.AxisLockAngularZ = false;
@@ -15,5 +15,7 @@ public partial class DestructibleRope : Destructible
         crb.AxisLockLinearY = false;
         crb.AxisLockLinearZ = false;
         crb.Sleeping = false;
+
+        GD.Print($"{crb} {crb.Name} is loose!");
     }
 }
