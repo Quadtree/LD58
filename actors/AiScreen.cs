@@ -11,6 +11,10 @@ public partial class AiScreen : Node3D
     int CharactersTyped = 0;
     bool OptionsDisplayed = false;
     bool KnowAboutArtifacts = false;
+    bool FirstMessageDone = false;
+    int TypeCount = 0;
+
+    AudioStream TypeSound;
 
     void ShowMessage(string message,
         string o1, Action o1Trg,
@@ -25,6 +29,7 @@ public partial class AiScreen : Node3D
         ActionStrings = [o1, o2, o3, o4];
         CharacterTypeCharge = 0;
         OptionsDisplayed = false;
+        TypeCount = 0;
 
         this.FindChildByName<Label3D>("Response").Text = "";
 
@@ -38,6 +43,8 @@ public partial class AiScreen : Node3D
     public override void _Ready()
     {
         base._Ready();
+
+        TypeSound = GD.Load<AudioStream>("res://sounds/type.wav");
 
         ConvoMainMenu();
     }
@@ -56,6 +63,8 @@ public partial class AiScreen : Node3D
 
             this.FindChildByName<Label3D>("Response").Text = MessageFromAI.Substring(0, CharactersTyped);
             CharacterTypeCharge = 0;
+
+            if (FirstMessageDone && TypeCount++ % 4 == 0) Util.SpawnOneShotSound(TypeSound, this, GlobalPosition, -40);
         }
 
         if (!OptionsDisplayed && CharactersTyped >= MessageFromAI.Length)
@@ -68,6 +77,7 @@ public partial class AiScreen : Node3D
             }
 
             OptionsDisplayed = true;
+            FirstMessageDone = true;
         }
 
         Label3D hoveredOption = null;

@@ -247,6 +247,7 @@ script = ExtResource("1_vnah1")
 environment = SubResource("Environment_6jlvn")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 3
 bounces = 6
 directional = true
 light_data = ExtResource("2_6jlvn")

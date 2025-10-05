@@ -9,11 +9,28 @@ public partial class SlidingDoor : Node3D
     [Export]
     public bool IsOpen = false;
 
+    bool PlayedOpeningSound = false;
+
     float OpenAmount = 0;
+
+    AudioStream OpenSound;
+
+    public override void _Ready()
+    {
+        base._Ready();
+
+        OpenSound = GD.Load<AudioStream>("res://sounds/door_open2.wav");
+    }
 
     public override void _PhysicsProcess(double delta)
     {
         float TargetOpenAmount = IsOpen ? 1 : 0;
+
+        if (IsOpen && !PlayedOpeningSound)
+        {
+            Util.SpawnOneShotSound(OpenSound, this);
+            PlayedOpeningSound = true;
+        }
 
         float moveSpeed = (float)delta * MoveSpeed;
 
