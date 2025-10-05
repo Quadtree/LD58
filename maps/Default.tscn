@@ -190,7 +190,7 @@ directional = true
 light_data = ExtResource("2_6jlvn")
 
 [node name="PlayerCharacter" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.975, 0.529807, 36.8532)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9114, 0.529807, 39.1301)
 script = ExtResource("4_gfcby")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCharacter"]
@@ -273,6 +273,10 @@ collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="main_structure/Room1/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_dfir2")
+
+[node name="SlidingDoor2" parent="main_structure/Room1" instance=ExtResource("6_o8hxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1438, 1.53578, 38.4149)
+IsOpen = true
 
 [node name="Room2" type="Node3D" parent="main_structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3908, 0.24684, 13.7682)

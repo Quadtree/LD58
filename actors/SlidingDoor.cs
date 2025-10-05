@@ -6,6 +6,7 @@ public partial class SlidingDoor : Node3D
     [Export]
     float MoveSpeed = 1;
 
+    [Export]
     public bool IsOpen = false;
 
     float OpenAmount = 0;
