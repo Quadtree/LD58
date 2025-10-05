@@ -75,9 +75,6 @@ public partial class PlayerCharacter : CharacterBody3D
             }
         }
 
-
-
-
         // var visibleLights = 5;
 
         // foreach (var it in GetTree().CurrentScene.FindChildrenByType<OmniLight3D>().OrderBy(it => it.GlobalPosition.DistanceSquaredTo(GlobalPosition)))
@@ -120,14 +117,14 @@ public partial class PlayerCharacter : CharacterBody3D
                 CurrentGrabRange = res.Pos.Value.DistanceTo(this.FindChildByType<Camera3D>().GlobalPosition);
                 GD.Print($"grabbed={res.Hit} CurrentGrabRange={CurrentGrabRange}");
             }
-            else if (res.Hit?.GetParent() is ButtonConsole bb)
+            else if (res.Hit?.FindParentByType<ButtonConsole>() is ButtonConsole bb)
             {
                 bb.Pressed();
                 CurrentButtonConsole = bb;
             }
             else
             {
-                GD.Print($"Failed to grab anything, thing hit was {res.Hit} {res.Hit?.Name}");
+                GD.Print($"Failed to grab anything, thing hit was {res.Hit} {res.Hit?.Name} {res.Hit?.FindParentByType<ButtonConsole>()}");
             }
         }
 
@@ -136,6 +133,12 @@ public partial class PlayerCharacter : CharacterBody3D
             foreach (var it in GetTree().CurrentScene.FindChildrenByPredicate<Grabbable>(it => it.IsGrabbed))
             {
                 it.Released();
+            }
+
+            if (CurrentButtonConsole != null)
+            {
+                CurrentButtonConsole.Released();
+                CurrentButtonConsole = null;
             }
         }
     }
