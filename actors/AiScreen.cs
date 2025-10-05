@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Godot;
 
 public partial class AiScreen : Node3D
@@ -111,7 +112,30 @@ public partial class AiScreen : Node3D
 
     void ConvoHint()
     {
+        var pcArt = GetTree().CurrentScene.FindChildByType<PlayerCharacter>().ArtifactsTouched.Order();
 
+        var firstDoorIsLocked = GetTree().CurrentScene.FindChildByName<Node3D>("FirstDoorLock") != null;
+
+        if (!pcArt.Contains(1))
+        {
+            ShowMessage("There's probably one in this room. Check the cabinets.", "OK.", ConvoMainMenu);
+        }
+        else if (firstDoorIsLocked)
+        {
+            ShowMessage("Open all the cabinets in this room. Take the three laser pieces and combine 'em by pressing them together. Then hit the door with the laser.", "OK.", ConvoMainMenu);
+        }
+        else if (!pcArt.Contains(2))
+        {
+            ShowMessage("See if you can burn through the rope holding the second one up with the laser.", "OK.", ConvoMainMenu);
+        }
+        else if (!pcArt.Contains(3))
+        {
+            ShowMessage("There's a dispenser for the third artifact in the storeroom. Use the consoles with red arrows to send the robot in there to get it.", "OK.", ConvoMainMenu);
+        }
+        else
+        {
+            ShowMessage("You've got 'em all. Take all 3 artifacts to the glowy portal room and jump through the portal.", "OK.", ConvoMainMenu);
+        }
     }
 
     void ConvoWhatIsThisPlace()
@@ -159,6 +183,7 @@ public partial class AiScreen : Node3D
             "And then what?", ConvoHowDoIActivatePortal2,
             "Let's talk about something else.", ConvoMainMenu
         );
+        KnowAboutArtifacts = true;
     }
 
     void ConvoHowDoIActivatePortal2()

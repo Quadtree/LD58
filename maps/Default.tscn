@@ -321,7 +321,7 @@ PartIDs = Array[int]([2])
 [node name="MeshInstance3D" parent="main_structure/Room1/Cabinet3/LaserPart3" index="0"]
 mesh = SubResource("BoxMesh_knjwl")
 
-[node name="DestructibleLock" parent="main_structure/Room1/Cabinet3" instance=ExtResource("9_bd0q3")]
+[node name="FirstDoorLock" parent="main_structure/Room1/Cabinet3" instance=ExtResource("9_bd0q3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84645, 0.164149, -0.767431)
 
 [node name="Cabinet4" parent="main_structure/Room1" instance=ExtResource("8_rxjgb")]

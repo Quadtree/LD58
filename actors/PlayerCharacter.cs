@@ -17,7 +17,7 @@ public partial class PlayerCharacter : CharacterBody3D
 
     ButtonConsole CurrentButtonConsole;
 
-    List<int> ArtifactsTouched = [];
+    public List<int> ArtifactsTouched = [];
 
     public override void _Ready()
     {
