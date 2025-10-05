@@ -39,5 +39,6 @@ visible = false
 
 [node name="BeamSegmentRay" type="MeshInstance3D" parent="BeamSegment"]
 transform = Transform3D(1, 0.000400428, 0.000332398, -0.000332217, -0.000438852, 1, 0.000400578, -1, -0.000438715, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_pypxt")
 skeleton = NodePath("../..")

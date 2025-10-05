@@ -22,6 +22,7 @@ public partial class PlayerCharacter : CharacterBody3D
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
+        this.FindChildByName<Node3D>("DebugHand").Visible = OS.IsDebugBuild();
     }
 
     public override void _PhysicsProcess(double delta)

@@ -1,6 +1,4 @@
 # TODO
-- Failsafe in case something falls through the floor
-- Laser beam no cast shadows
 - Make sure the drag target is invisible in non-debug
 - Optional VR support
 
@@ -17,3 +15,5 @@
 - Final graphics: Artifacts
 - Final graphics: Laser parts
 - AI hints in room 1
+- Failsafe in case something falls through the floor
+- Laser beam no cast shadows
