@@ -23,6 +23,8 @@ public partial class Laser : Grabbable
         }
 
         BeamSegments = segs.ToArray();
+
+        LD58Util.AddBonkToBody(this);
     }
 
     public override void _PhysicsProcess(double delta)

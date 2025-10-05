@@ -30,6 +30,8 @@ public partial class LaserPart : Grabbable
         string[] letters = ["A", "B", "C"];
 
         this.FindChildByName<Label3D>("MainLabel").Text = $"LASER\nPART {letters[PartIDs[0]]}";
+
+        LD58Util.AddBonkToBody(this);
     }
 
     void ConsumeOther(LaserPart lp)
