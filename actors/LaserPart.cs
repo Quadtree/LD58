@@ -26,6 +26,10 @@ public partial class LaserPart : Grabbable
         };
 
         CombineSound = GD.Load<AudioStream>("res://sounds/combine.wav");
+
+        string[] letters = ["A", "B", "C"];
+
+        this.FindChildByName<Label3D>("MainLabel").Text = $"LASER\nPART {letters[PartIDs[0]]}";
     }
 
     void ConsumeOther(LaserPart lp)
