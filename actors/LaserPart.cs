@@ -8,6 +8,8 @@ public partial class LaserPart : Grabbable
     [Export]
     Godot.Collections.Array<int> PartIDs;
 
+    AudioStream CombineSound;
+
     public override void _Ready()
     {
         BodyEntered += (v1) =>
@@ -22,6 +24,8 @@ public partial class LaserPart : Grabbable
                 }
             }
         };
+
+        CombineSound = GD.Load<AudioStream>("res://sounds/combine.wav");
     }
 
     void ConsumeOther(LaserPart lp)
@@ -36,6 +40,8 @@ public partial class LaserPart : Grabbable
         {
             CallDeferred(nameof(TurnIntoLaser));
         }
+
+        Util.SpawnOneShotSound(CombineSound, this, GlobalPosition);
     }
 
     void TurnIntoLaser()

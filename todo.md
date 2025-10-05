@@ -1,5 +1,5 @@
 # TODO
-- Sound
+- Sound: Door open, laser assemble
 - Final graphics
 - Failsafe in case something falls through the floor
 - Optional VR support
