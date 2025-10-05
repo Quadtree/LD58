@@ -6,6 +6,8 @@ public partial class ButtonConsole : Node3D
     [Export]
     float ApparentDirection;
 
+    public bool IsPressed = false;
+
     public override void _Ready()
     {
         base._Ready();
@@ -16,5 +18,15 @@ public partial class ButtonConsole : Node3D
             bb.Rotation.Y,
             ApparentDirection * Mathf.Pi / 2 * ApparentDirection
         );
+    }
+
+    public void Pressed()
+    {
+        GD.Print($"{this} Pressed");
+    }
+
+    public void Released()
+    {
+        GD.Print($"{this} Released");
     }
 }

@@ -14,6 +14,8 @@ public partial class PlayerCharacter : CharacterBody3D
 
     float CurrentGrabRange;
 
+    ButtonConsole CurrentButtonConsole;
+
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -62,6 +64,20 @@ public partial class PlayerCharacter : CharacterBody3D
             }
         }
 
+
+        if (CurrentButtonConsole != null)
+        {
+            var res = Picking.PickAtCursor(this, collisionMask: uint.MaxValue);
+            if (res.Hit?.GetParent() != CurrentButtonConsole)
+            {
+                CurrentButtonConsole.Released();
+                CurrentButtonConsole = null;
+            }
+        }
+
+
+
+
         // var visibleLights = 5;
 
         // foreach (var it in GetTree().CurrentScene.FindChildrenByType<OmniLight3D>().OrderBy(it => it.GlobalPosition.DistanceSquaredTo(GlobalPosition)))
@@ -103,6 +119,11 @@ public partial class PlayerCharacter : CharacterBody3D
 
                 CurrentGrabRange = res.Pos.Value.DistanceTo(this.FindChildByType<Camera3D>().GlobalPosition);
                 GD.Print($"grabbed={res.Hit} CurrentGrabRange={CurrentGrabRange}");
+            }
+            else if (res.Hit?.GetParent() is ButtonConsole bb)
+            {
+                bb.Pressed();
+                CurrentButtonConsole = bb;
             }
             else
             {
