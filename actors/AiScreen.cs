@@ -91,7 +91,12 @@ public partial class AiScreen : Node3D
 
     public void RegisterHit(Node3D hitThing)
     {
-
+        if (hitThing?.FindParentByPredicate<Label3D>(it => $"{it.Name}".StartsWith("Option")) is Label3D l3)
+        {
+            var optionId = int.Parse($"{l3.Name}".Replace("Option", ""));
+            var ac = ActionTargets[optionId];
+            if (ac != null) ac();
+        }
     }
 
     void ConvoWhatIsThisPlace()
