@@ -1,5 +1,4 @@
 # TODO
-- Sound: Door open, laser assemble
 - Final graphics
 - Failsafe in case something falls through the floor
 - Optional VR support
@@ -13,3 +12,4 @@
 - Mirrors in room 2
 - Buttons to control the robot
 - Start sequence
+- Sound: Door open, laser assemble
