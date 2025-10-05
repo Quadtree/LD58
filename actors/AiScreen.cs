@@ -9,6 +9,7 @@ public partial class AiScreen : Node3D
     string MessageFromAI = "";
     int CharactersTyped = 0;
     bool OptionsDisplayed = false;
+    bool KnowAboutArtifacts = false;
 
     void ShowMessage(string message,
         string o1, Action o1Trg,
@@ -64,6 +65,8 @@ public partial class AiScreen : Node3D
                 op.Text = ActionStrings[i];
                 op.Visible = true;
             }
+
+            OptionsDisplayed = true;
         }
 
         Label3D hoveredOption = null;
@@ -88,7 +91,7 @@ public partial class AiScreen : Node3D
 
     public void RegisterHit(Node3D hitThing)
     {
-        if (hitThing?.FindParentByPredicate<Label3D>(it => $"{it.Name}".StartsWith("Option")) is Label3D l3)
+        if (OptionsDisplayed && hitThing?.FindParentByPredicate<Label3D>(it => $"{it.Name}".StartsWith("Option")) is Label3D l3)
         {
             var optionId = int.Parse($"{l3.Name}".Replace("Option", ""));
             var ac = ActionTargets[optionId];
@@ -101,7 +104,14 @@ public partial class AiScreen : Node3D
         ShowMessage("Welcome to station 9. Click one of the options below.",
             "What is this place?", ConvoWhatIsThisPlace,
             "How do I get out of here?", ConvoHowDoIGetOutOfHere,
-            "Who are you?", ConvoWhoAreYou);
+            "Who are you?", ConvoWhoAreYou,
+            KnowAboutArtifacts ? "How do I get the artifacts?" : null, KnowAboutArtifacts ? ConvoHint : null
+        );
+    }
+
+    void ConvoHint()
+    {
+
     }
 
     void ConvoWhatIsThisPlace()
@@ -110,6 +120,7 @@ public partial class AiScreen : Node3D
             "Are we in space?", ConvoAreWeInSpace,
             "What happened on Station 7?", ConvoStation7,
             "What happened on Station 8?", ConvoStation8,
+            "Let's talk about something else.", ConvoMainMenu
         );
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
@@ -15,6 +16,8 @@ public partial class PlayerCharacter : CharacterBody3D
     float CurrentGrabRange;
 
     ButtonConsole CurrentButtonConsole;
+
+    List<int> ArtifactsTouched = [];
 
     public override void _Ready()
     {
@@ -116,6 +119,14 @@ public partial class PlayerCharacter : CharacterBody3D
 
                 CurrentGrabRange = res.Pos.Value.DistanceTo(this.FindChildByType<Camera3D>().GlobalPosition);
                 GD.Print($"grabbed={res.Hit} CurrentGrabRange={CurrentGrabRange}");
+
+                if (g is Artifact art)
+                {
+                    if (!ArtifactsTouched.Contains(art.ArtifactID))
+                    {
+                        ArtifactsTouched.Add(art.ArtifactID);
+                    }
+                }
             }
             else if (res.Hit?.FindParentByType<ButtonConsole>() is ButtonConsole bb)
             {

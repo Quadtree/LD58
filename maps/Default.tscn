@@ -330,8 +330,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9812, 1.74006, 22.1969)
 [node name="DestructibleLock" parent="main_structure/Room1/Cabinet4" instance=ExtResource("9_bd0q3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84645, 0.164149, -0.767431)
 
-[node name="Artifact3" parent="main_structure/Room1/Cabinet4" instance=ExtResource("12_j08x7")]
+[node name="Artifact1" parent="main_structure/Room1/Cabinet4" instance=ExtResource("12_j08x7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104141, -0.360893, 0.166187)
+ArtifactID = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room1"]
 transform = Transform3D(3.27767, 0, 0, 0, 0.336888, 0, 0, 0, 3.17716, -33.1327, 0.594415, 23.0514)
