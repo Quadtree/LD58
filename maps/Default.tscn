@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=61 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://pmk527dj7sw7" path="res://meshes/robot_body.glb" id="13_knjwl"]
 [ext_resource type="Script" uid="uid://ccyeyrx6kan6y" path="res://actors/StoreroomDispenser.cs" id="14_j1mvy"]
 [ext_resource type="Script" uid="uid://dl7d4plkf5b7n" path="res://actors/ExitPortal.cs" id="15_lr4ce"]
+[ext_resource type="PackedScene" uid="uid://bix5saaicapos" path="res://actors/ButtonConsole.tscn" id="18_gqor7"]
 
 [sub_resource type="Environment" id="Environment_6jlvn"]
 background_mode = 1
@@ -503,6 +504,21 @@ offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("7_6m16o")
+
+[node name="ButtonConsole" parent="." instance=ExtResource("18_gqor7")]
+transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 2.3875, 2.24297, 6.14413)
+
+[node name="ButtonConsole2" parent="." instance=ExtResource("18_gqor7")]
+transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 2.3875, 2.24297, 7.04966)
+ApparentDirection = 1.0
+
+[node name="ButtonConsole3" parent="." instance=ExtResource("18_gqor7")]
+transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 2.3875, 2.24297, 7.9292)
+ApparentDirection = 2.0
+
+[node name="ButtonConsole4" parent="." instance=ExtResource("18_gqor7")]
+transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 2.3875, 2.24297, 8.81049)
+ApparentDirection = 3.0
 
 [editable path="main_structure"]
 [editable path="main_structure/Room1/Cabinet/LaserPart"]
