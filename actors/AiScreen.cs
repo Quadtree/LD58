@@ -89,6 +89,11 @@ public partial class AiScreen : Node3D
         }
     }
 
+    public void RegisterHit(Node3D hitThing)
+    {
+
+    }
+
     void ConvoWhatIsThisPlace()
     {
 

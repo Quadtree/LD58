@@ -122,6 +122,10 @@ public partial class PlayerCharacter : CharacterBody3D
                 bb.Pressed();
                 CurrentButtonConsole = bb;
             }
+            else if (res.Hit.FindParentByType<AiScreen>() is AiScreen ai)
+            {
+                ai.RegisterHit(res.Hit);
+            }
             else
             {
                 GD.Print($"Failed to grab anything, thing hit was {res.Hit} {res.Hit?.Name} {res.Hit?.FindParentByType<ButtonConsole>()}");
