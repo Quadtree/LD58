@@ -1,10 +1,12 @@
-[gd_scene load_steps=61 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=68 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
 [ext_resource type="LightmapGIData" uid="uid://bhvytro5a30ki" path="res://maps/Default.lmbake" id="2_6jlvn"]
 [ext_resource type="PackedScene" uid="uid://cy1m62d1fqnj4" path="res://actors/LightFixture.tscn" id="2_hlrh3"]
 [ext_resource type="Script" uid="uid://f3lrew87w327" path="res://actors/PlayerCharacter.cs" id="4_gfcby"]
+[ext_resource type="Texture2D" uid="uid://cakcbs2lgl7u" path="res://textures/hexes_normal.png" id="5_aomgn"]
+[ext_resource type="Texture2D" uid="uid://doqokgo7rgwym" path="res://textures/rough.png" id="6_lmt8x"]
 [ext_resource type="PackedScene" uid="uid://cfw1wwbltfwko" path="res://actors/SlidingDoor.tscn" id="6_o8hxr"]
 [ext_resource type="Texture2D" uid="uid://bn0x77mypanps" path="res://textures/crosshair1.png" id="7_6m16o"]
 [ext_resource type="PackedScene" uid="uid://727swyb5wpck" path="res://actors/Cabinet.tscn" id="8_rxjgb"]
@@ -32,7 +34,39 @@ glow_enabled = true
 size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqor7"]
-albedo_color = Color(0.324203, 0.324203, 0.324203, 1)
+albedo_color = Color(0.17881, 0.17881, 0.17881, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aomgn"]
+albedo_color = Color(0.357, 0.36225, 0.42, 1)
+normal_enabled = true
+normal_texture = ExtResource("5_aomgn")
+uv1_scale = Vector3(20, 20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tign"]
+albedo_color = Color(0.641934, 0.641934, 0.641934, 1)
+metallic = 1.0
+roughness = 0.69
+normal_enabled = true
+normal_texture = ExtResource("6_lmt8x")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmt8x"]
+normal_enabled = true
+normal_scale = 0.3
+normal_texture = ExtResource("5_aomgn")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4pk5"]
+albedo_color = Color(0.36, 0.1872, 0.1872, 1)
+normal_enabled = true
+normal_texture = ExtResource("6_lmt8x")
+uv1_scale = Vector3(20, 20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktqxq"]
+albedo_color = Color(0.529067, 0.529067, 0.529067, 1)
+normal_enabled = true
+normal_texture = ExtResource("5_aomgn")
+uv1_scale = Vector3(8, 8, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfir2"]
 albedo_color = Color(1, 0, 0, 1)
@@ -208,6 +242,15 @@ mesh = SubResource("PrismMesh_dfir2")
 
 [node name="MainStructure" parent="main_structure" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_gqor7")
+surface_material_override/1 = SubResource("StandardMaterial3D_aomgn")
+surface_material_override/2 = SubResource("StandardMaterial3D_aomgn")
+surface_material_override/3 = SubResource("StandardMaterial3D_aomgn")
+surface_material_override/4 = SubResource("StandardMaterial3D_0tign")
+surface_material_override/5 = SubResource("StandardMaterial3D_0tign")
+surface_material_override/6 = SubResource("StandardMaterial3D_0tign")
+surface_material_override/7 = SubResource("StandardMaterial3D_lmt8x")
+surface_material_override/8 = SubResource("StandardMaterial3D_t4pk5")
+surface_material_override/9 = SubResource("StandardMaterial3D_ktqxq")
 
 [node name="Room1" type="Node3D" parent="main_structure"]
 
