@@ -24,12 +24,15 @@ public partial class SlidingDoor : Node3D
 
     public override void _PhysicsProcess(double delta)
     {
+        if (GetTree().Paused) return;
+
         float TargetOpenAmount = IsOpen ? 1 : 0;
 
         if (IsOpen && !PlayedOpeningSound)
         {
             Util.SpawnOneShotSound(OpenSound, this);
             PlayedOpeningSound = true;
+            GD.Print("Door opening");
         }
 
         float moveSpeed = (float)delta * MoveSpeed;

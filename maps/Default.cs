@@ -14,6 +14,7 @@ public partial class Default : Node3D
         ProcessMode = ProcessModeEnum.Always;
 
         GetTree().Paused = true;
+        GD.Print("Game paused");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -31,6 +32,7 @@ public partial class Default : Node3D
     {
         if (GetTree().Paused && (@event is InputEventKey evt3 || @event is InputEventMouseButton evt4))
         {
+            GD.Print("Game start!");
             GetTree().Paused = false;
         }
 
