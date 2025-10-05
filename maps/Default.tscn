@@ -628,6 +628,9 @@ script = ExtResource("26_bu02h")
 [node name="FailSafeLocation" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0788, 1.21099, 29.9622)
 
+[node name="LightFixture" parent="." instance=ExtResource("2_hlrh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0144, 3.46387, 39.7056)
+
 [editable path="main_structure"]
 [editable path="main_structure/Room1/Cabinet/LaserPart"]
 [editable path="main_structure/Room1/Cabinet2/LaserPart2"]

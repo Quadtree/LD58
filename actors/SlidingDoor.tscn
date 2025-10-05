@@ -1,8 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfw1wwbltfwko"]
+[gd_scene load_steps=7 format=3 uid="uid://cfw1wwbltfwko"]
 
 [ext_resource type="Script" uid="uid://cbpmwcrqh20eo" path="res://actors/SlidingDoor.cs" id="1_otsdc"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_otsdc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7xsom"]
+width = 1024
+height = 1024
+as_normal_map = true
+noise = SubResource("FastNoiseLite_otsdc")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_otsdc"]
+metallic = 1.0
+roughness = 0.3
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = SubResource("NoiseTexture2D_7xsom")
 
 [sub_resource type="BoxMesh" id="BoxMesh_gg5el"]
 lightmap_size_hint = Vector2i(9, 41)
