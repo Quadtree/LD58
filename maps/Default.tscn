@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=71 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -128,19 +128,36 @@ size = Vector3(0.6, 0.2, 0.6)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_knjwl"]
 points = PackedVector3Array(-0.3, -0.1, -0.3, -0.3, 0.1, -0.3, 0.3, -0.1, -0.3, -0.3, -0.1, 0.3, -0.3, 0.1, 0.3, 0.3, 0.1, -0.3, 0.3, -0.1, 0.3, 0.3, 0.1, 0.3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j08x7"]
+metallic = 1.0
+roughness = 0.18
+
 [sub_resource type="BoxMesh" id="BoxMesh_j1mvy"]
 lightmap_size_hint = Vector2i(12, 14)
+material = SubResource("StandardMaterial3D_j08x7")
 add_uv2 = true
 size = Vector3(0.6, 0.3, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yw211"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7t7x6"]
+albedo_color = Color(0.135617, 0.135617, 0.135617, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_lr4ce"]
 lightmap_size_hint = Vector2i(8, 7)
+material = SubResource("StandardMaterial3D_7t7x6")
 add_uv2 = true
 top_radius = 0.2
 bottom_radius = 0.2
 height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu02h"]
+metallic = 1.0
+roughness = 0.27
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("6_lmt8x")
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j1mvy"]
 points = PackedVector3Array(0.5, -0.142938, 0.0627011, 0.622197, 0.712611, 0.857062, 0.5, 0.679359, 0.826188, 0.622197, -0.17619, 0.857062, 0.622197, 0.712611, 0.0318268, 0.622197, -0.17619, 0.0318268, 0.5, -0.142938, 0.826188, 0.5, 0.679359, 0.0627011)
@@ -435,6 +452,9 @@ skeleton = NodePath("")
 
 [node name="robot_body" parent="main_structure/Room3/Robot1/CharacterBody3D" instance=ExtResource("13_knjwl")]
 transform = Transform3D(0.481612, 0, 0, 0, 0.481612, 0, 0, 0, 0.481612, 0, 0.175764, 0)
+
+[node name="Cube" parent="main_structure/Room3/Robot1/CharacterBody3D/robot_body" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bu02h")
 
 [node name="DumpBody" type="CharacterBody3D" parent="main_structure/Room3/Robot1/CharacterBody3D"]
 collision_layer = 4
