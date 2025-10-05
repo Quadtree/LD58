@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://2fkt6h8iw82o"]
+[gd_scene load_steps=5 format=3 uid="uid://2fkt6h8iw82o"]
+
+[ext_resource type="FontFile" uid="uid://dm87822siq02e" path="res://fonts/Inconsolata-VariableFont_wdth,wght.ttf" id="1_2eo3u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o56vq"]
 albedo_color = Color(0, 0, 0, 1)
@@ -20,6 +22,7 @@ mesh = SubResource("QuadMesh_o56vq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8677, 1.17005, 0.0195878)
 modulate = Color(0.270588, 1, 0.239216, 1)
 text = "Lorum ipsum ete. hey oh i see what's going on ok let's check the line width. hmmm it's a little off."
+font = ExtResource("1_2eo3u")
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
@@ -30,6 +33,7 @@ width = 750.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85383, -0.0409436, 0.0195878)
 modulate = Color(0.270588, 1, 0.239216, 1)
 text = "- Option A"
+font = ExtResource("1_2eo3u")
 outline_size = 0
 horizontal_alignment = 0
 autowrap_mode = 3
@@ -47,6 +51,7 @@ shape = SubResource("BoxShape3D_2eo3u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85383, -0.368292, 0.0195878)
 modulate = Color(0.270588, 1, 0.239216, 1)
 text = "- Option A"
+font = ExtResource("1_2eo3u")
 outline_size = 0
 horizontal_alignment = 0
 autowrap_mode = 3
@@ -64,6 +69,7 @@ shape = SubResource("BoxShape3D_2eo3u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85383, -0.69766, 0.0195878)
 modulate = Color(0.270588, 1, 0.239216, 1)
 text = "- Option A"
+font = ExtResource("1_2eo3u")
 outline_size = 0
 horizontal_alignment = 0
 autowrap_mode = 3
@@ -81,6 +87,7 @@ shape = SubResource("BoxShape3D_2eo3u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85383, -1.03165, 0.0195878)
 modulate = Color(0.270588, 1, 0.239216, 1)
 text = "- Option A"
+font = ExtResource("1_2eo3u")
 outline_size = 0
 horizontal_alignment = 0
 autowrap_mode = 3

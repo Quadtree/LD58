@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=80 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dt5te7mr7qnb1" path="res://actors/Artifact1.tscn" id="12_j08x7"]
 [ext_resource type="Script" uid="uid://bw2vvhfg4lj4d" path="res://actors/Robot.cs" id="12_yw211"]
 [ext_resource type="PackedScene" uid="uid://pmk527dj7sw7" path="res://meshes/robot_body.glb" id="13_knjwl"]
+[ext_resource type="FontFile" uid="uid://dm87822siq02e" path="res://fonts/Inconsolata-VariableFont_wdth,wght.ttf" id="13_tvsj1"]
 [ext_resource type="Script" uid="uid://ccyeyrx6kan6y" path="res://actors/StoreroomDispenser.cs" id="14_j1mvy"]
 [ext_resource type="Material" uid="uid://cgw3bshaoodwt" path="res://materials/Rope1.tres" id="14_j08x7"]
 [ext_resource type="PackedScene" uid="uid://c6ban8avq0b43" path="res://meshes/alien_artifact.glb" id="15_0tign"]
@@ -354,6 +355,7 @@ IsOpen = true
 transform = Transform3D(0.226917, 0, 0, 0, 0.226917, 0, 0, 0, 0.226917, -0.431572, 0.713873, 0.0577621)
 modulate = Color(0.270588, 1, 0.239216, 1)
 text = "Station 9"
+font = ExtResource("13_tvsj1")
 font_size = 140
 outline_size = 24
 
@@ -361,11 +363,13 @@ outline_size = 24
 transform = Transform3D(0.17591, 0, 0, 0, 0.17591, 0, 0, 0, 0.17591, -0.431572, -0.0225614, 0.0577621)
 modulate = Color(0.270588, 1, 0.239216, 1)
 text = "Made by Quadtree for Ludum Dare 58"
+font = ExtResource("13_tvsj1")
 
 [node name="Label3D3" type="Label3D" parent="main_structure/Room1/SlidingDoor2/LeftDoor" index="4"]
 transform = Transform3D(0.17591, 0, 0, 0, 0.17591, 0, 0, 0, 0.17591, -0.431572, 0.286609, 0.0577621)
 modulate = Color(0.270588, 1, 0.239216, 1)
 text = "Press any key to start."
+font = ExtResource("13_tvsj1")
 
 [node name="Room2" type="Node3D" parent="main_structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3908, 0.24684, 13.7682)
