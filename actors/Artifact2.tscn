@@ -1,14 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwupeeargrc0g"]
+[gd_scene load_steps=9 format=3 uid="uid://dwupeeargrc0g"]
 
 [ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="1_eyihl"]
+[ext_resource type="PackedScene" uid="uid://c6ban8avq0b43" path="res://meshes/alien_artifact.glb" id="2_ggkym"]
+[ext_resource type="Material" uid="uid://cuh3xjt4fnacr" path="res://materials/Artifact1Glowy.tres" id="3_17g55"]
+[ext_resource type="Material" uid="uid://d3tp3d78h765b" path="res://materials/ArtifactBody.tres" id="3_aajal"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_yw211"]
-lightmap_size_hint = Vector2i(6, 9)
-add_uv2 = true
-size = Vector3(0.2, 0.2, 0.2)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_17g55"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eyihl"]
-points = PackedVector3Array(0.1, 0.1, 0.1, 0.1, 0.1, -0.1, -0.1, 0.1, 0.1, 0.1, -0.1, 0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aajal"]
+points = PackedVector3Array(0.179743, 1.91693, 0.359204, -0.179743, 0.239821, -1.91726, -0.179743, 0.359673, -1.91726, -0.179743, 0.239821, 1.91726, 0.179743, 0.239821, -1.91726, -0.179743, 1.85717, -0.599049, 0.179743, 0.239821, 1.91726, -0.179743, 1.49761, 1.25815, 0.179743, 1.49761, -1.25815, 0.179743, 1.25807, 1.49762, -0.179743, 1.25807, -1.49762, -0.179743, 1.91693, 0.359204, 0.179743, 1.91693, -0.359204, 0.179743, 0.898843, -1.73747, -0.179743, 0.778991, 1.79715, 0.179743, 1.73731, 0.898574, 0.179743, 0.778991, 1.79715, -0.179743, 1.73731, -0.898574, 0.179743, 1.79724, -0.778839, -0.179743, 1.79724, 0.778839, -0.179743, 0.778991, -1.79715, -0.179743, 1.25807, 1.49762, -0.179743, 1.91693, -0.359204, 0.179743, 0.599377, -1.8572, -0.179743, 0.359673, 1.91726, -0.179743, 1.49761, -1.25815, 0.179743, 1.49761, 1.25815, 0.179743, 1.25807, -1.49762, 0.179743, 0.898843, 1.73747, 0.179743, 1.85717, 0.599049, 0.179743, 0.599377, 1.8572, -0.179743, 0.898843, 1.73747)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iorce"]
+points = PackedVector3Array(1.91726, -0.179661, 0.359204, -0.359204, -0.179661, -1.91726, -0.599049, -0.179661, -1.8572, -0.179414, 0.239575, -1.91726, -1.25815, 0.17969, 1.49762, -1.91726, -0.179661, 0.359204, 1.91726, 0.17969, -0.359204, 0.599049, -0.179661, 1.8572, 0.179414, 0.239575, 1.91726, -1.79715, 0.17969, -0.778839, 1.25815, -0.179661, -1.49762, 1.49762, 0.17969, 1.25815, -0.778839, -0.179661, 1.79715, 0.898574, 0.17969, -1.73747, -1.49762, -0.179661, -1.25815, -1.91726, 0.17969, 0.359204, -1.25815, 0.17969, -1.49762, 1.49762, -0.179661, 1.25815, 1.73747, -0.179661, -0.898574, -1.49762, -0.179661, 1.25815, 1.49762, 0.17969, -1.25815, -0.179414, 0.239575, 1.91726, 0.359204, -0.179661, -1.91726, 1.8572, 0.17969, 0.599049, -1.91726, -0.179661, -0.359204, 0.179414, 0.239575, -1.91726, 0.898574, 0.17969, 1.73747, -1.73747, 0.17969, 0.898574, -0.359204, -0.179661, 1.91726, -0.778839, 0.17969, 1.79715, -0.778839, 0.17969, -1.79715, 1.91726, -0.179661, -0.359204)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rdolm"]
+points = PackedVector3Array(0.179743, -0.179743, 1.91726, -0.179743, -1.91726, -0.359204, -0.179743, -1.85722, -0.599049, -0.179743, -0.179743, 1.91726, 0.179743, -0.179743, -1.91726, 0.179743, -1.85722, 0.599049, -0.179743, -0.179743, -1.91726, 0.179743, -1.49785, -1.25815, -0.179743, -1.49785, 1.25815, -0.179743, -0.898831, -1.73747, 0.179743, -0.898831, 1.73747, 0.179743, -1.91726, -0.359204, -0.179743, -1.91726, 0.359204, 0.179743, -0.779097, -1.79715, -0.179743, -0.779097, 1.79715, 0.179743, -1.49785, 1.25815, -0.179743, -1.49785, -1.25815, 0.179743, -1.79735, -0.778839, -0.179743, -1.79735, 0.778839, 0.179743, -1.25804, -1.49762, -0.179743, -1.25804, 1.49762, -0.179743, -0.359515, -1.91726, 0.179743, -0.359515, 1.91726, 0.179743, -1.91726, 0.359204, 0.179743, -1.73748, 0.898574, -0.179743, -1.73748, -0.898574, 0.179743, -1.25804, 1.49762, -0.179743, -1.25804, -1.49762, 0.179743, -0.359515, -1.91726, -0.179743, -0.359515, 1.91726, -0.179743, -0.599155, -1.8572, 0.179743, -0.599155, 1.8572)
 
 [node name="Artifact2" type="RigidBody3D"]
 axis_lock_linear_x = true
@@ -20,10 +27,29 @@ axis_lock_angular_z = true
 script = ExtResource("1_eyihl")
 ArtifactID = 2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0268505, 0)
-mesh = SubResource("BoxMesh_yw211")
+[node name="alien_artifact" parent="." instance=ExtResource("2_ggkym")]
+transform = Transform3D(0.0839308, 0, 0, 0, 0.0839308, 0, 0, 0, 0.0839308, 0, 0, 0)
+
+[node name="Cube" parent="alien_artifact" index="0"]
+surface_material_override/0 = ExtResource("3_aajal")
+
+[node name="Cylinder_001" parent="alien_artifact" index="1"]
+surface_material_override/0 = ExtResource("3_17g55")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0268505, 0)
-shape = SubResource("ConvexPolygonShape3D_eyihl")
+transform = Transform3D(0.0839308, 0, 0, 0, 0.0839308, 0, 0, 0, 0.0839308, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_17g55")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.059348, -0.059348, -2.50133e-09, -2.50133e-09, 5.00266e-09, -0.0839308, 0.059348, 0.059348, 0, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_aajal")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.059348, -0.059348, -2.50133e-09, -2.50133e-09, 5.00266e-09, -0.0839308, 0.059348, 0.059348, 0, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_iorce")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.059348, -0.059348, -2.50133e-09, -2.50133e-09, 5.00266e-09, -0.0839308, 0.059348, 0.059348, 0, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_rdolm")
+
+[editable path="alien_artifact"]

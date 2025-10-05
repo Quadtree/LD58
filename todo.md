@@ -1,5 +1,6 @@
 # TODO
-- Final graphics
+- Final graphics: Artifacts
+- Final graphics: Laser parts
 - AI hints in room 1
 - Failsafe in case something falls through the floor
 - Optional VR support
