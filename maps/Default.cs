@@ -10,6 +10,10 @@ public partial class Default : Node3D
         var sb = this.FindChildByName<Node3D>("main_structure").FindChildByType<StaticBody3D>();
         sb.CollisionLayer = ColGroup.CHARACTERS | ColGroup.WALLS;
         sb.CollisionMask = ColGroup.CHARACTERS | ColGroup.WALLS;
+
+        ProcessMode = ProcessModeEnum.Always;
+
+        GetTree().Paused = true;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -25,6 +29,11 @@ public partial class Default : Node3D
 
     public override void _UnhandledInput(InputEvent @event)
     {
+        if (GetTree().Paused && (@event is InputEventKey evt3 || @event is InputEventMouseButton evt4))
+        {
+            GetTree().Paused = false;
+        }
+
         if (@event is InputEventKey evt2)
         {
             if (evt2.IsActionPressed("quit_game") && !OS.HasFeature("web") && OS.IsDebugBuild())
