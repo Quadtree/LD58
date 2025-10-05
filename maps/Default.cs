@@ -12,6 +12,17 @@ public partial class Default : Node3D
         sb.CollisionMask = ColGroup.CHARACTERS | ColGroup.WALLS;
     }
 
+    public override void _PhysicsProcess(double delta)
+    {
+        base._PhysicsProcess(delta);
+
+        foreach (var it in GetTree().CurrentScene.FindChildrenByPredicate<RigidBody3D>(it => it.GlobalPosition.Y < -200))
+        {
+            GD.PushWarning($"Floor fall failsafe triggered for {it}");
+            it.GlobalPosition = GetTree().CurrentScene.FindChildByName<Node3D>("FailSafeLocation").GlobalPosition;
+        }
+    }
+
     public override void _UnhandledInput(InputEvent @event)
     {
         if (@event is InputEventKey evt2)

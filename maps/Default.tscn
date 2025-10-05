@@ -625,6 +625,9 @@ texture = ExtResource("7_6m16o")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.0173, 1.61865, 29.8236)
 script = ExtResource("26_bu02h")
 
+[node name="FailSafeLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0788, 1.21099, 29.9622)
+
 [editable path="main_structure"]
 [editable path="main_structure/Room1/Cabinet/LaserPart"]
 [editable path="main_structure/Room1/Cabinet2/LaserPart2"]
