@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://727swyb5wpck" path="res://actors/Cabinet.tscn" id="8_rxjgb"]
 [ext_resource type="PackedScene" uid="uid://cua2axun1y0ri" path="res://actors/DestructibleLock.tscn" id="9_bd0q3"]
 [ext_resource type="PackedScene" uid="uid://5eawto0w7plv" path="res://actors/LaserPart.tscn" id="9_dfir2"]
-[ext_resource type="PackedScene" uid="uid://bbam43epalglt" path="res://actors/Artifact3.tscn" id="10_2dvic"]
 [ext_resource type="Script" uid="uid://3k1rpr8hxx6i" path="res://actors/DestructibleRope.cs" id="10_adt7c"]
 [ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="11_kvuol"]
+[ext_resource type="PackedScene" uid="uid://dt5te7mr7qnb1" path="res://actors/Artifact1.tscn" id="12_j08x7"]
 [ext_resource type="Script" uid="uid://bw2vvhfg4lj4d" path="res://actors/Robot.cs" id="12_yw211"]
 [ext_resource type="PackedScene" uid="uid://pmk527dj7sw7" path="res://meshes/robot_body.glb" id="13_knjwl"]
 [ext_resource type="Script" uid="uid://ccyeyrx6kan6y" path="res://actors/StoreroomDispenser.cs" id="14_j1mvy"]
@@ -328,9 +328,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9812, 1.74006, 22.1969)
 [node name="DestructibleLock" parent="main_structure/Room1/Cabinet4" instance=ExtResource("9_bd0q3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84645, 0.164149, -0.767431)
 
-[node name="Artifact1" parent="main_structure/Room1/Cabinet4" instance=ExtResource("10_2dvic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0905151, -0.490179, 0.17145)
-ArtifactID = 1
+[node name="Artifact3" parent="main_structure/Room1/Cabinet4" instance=ExtResource("12_j08x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104141, -0.360893, 0.166187)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main_structure/Room1"]
 transform = Transform3D(3.27767, 0, 0, 0, 0.336888, 0, 0, 0, 3.17716, -33.1327, 0.594415, 23.0514)

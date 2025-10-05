@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbam43epalglt"]
+[gd_scene load_steps=9 format=3 uid="uid://dt5te7mr7qnb1"]
 
-[ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="1_bkupn"]
-[ext_resource type="PackedScene" uid="uid://c6ban8avq0b43" path="res://meshes/alien_artifact.glb" id="2_tms1o"]
-[ext_resource type="Material" uid="uid://d3tp3d78h765b" path="res://materials/ArtifactBody.tres" id="3_6vuaw"]
-[ext_resource type="Material" uid="uid://cuh3xjt4fnacr" path="res://materials/Artifact1Glowy.tres" id="4_3eanp"]
+[ext_resource type="Script" uid="uid://r5ybla02lj7i" path="res://actors/Artifact.cs" id="1_c1ctm"]
+[ext_resource type="PackedScene" uid="uid://c6ban8avq0b43" path="res://meshes/alien_artifact.glb" id="2_6jwq6"]
+[ext_resource type="Material" uid="uid://d3tp3d78h765b" path="res://materials/ArtifactBody.tres" id="3_abepj"]
+[ext_resource type="Material" uid="uid://c1s2e64cdocvv" path="res://materials/Artifact3Glowy.tres" id="4_8qgop"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tms1o"]
 points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
@@ -19,17 +19,17 @@ points = PackedVector3Array(0.179743, -0.179743, 1.91726, -0.179743, -1.91726, -
 
 [node name="Artifact3" type="RigidBody3D"]
 continuous_cd = true
-script = ExtResource("1_bkupn")
+script = ExtResource("1_c1ctm")
 ArtifactID = 3
 
-[node name="alien_artifact" parent="." instance=ExtResource("2_tms1o")]
+[node name="alien_artifact" parent="." instance=ExtResource("2_6jwq6")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
 
 [node name="Cube" parent="alien_artifact" index="0"]
-surface_material_override/0 = ExtResource("3_6vuaw")
+surface_material_override/0 = ExtResource("3_abepj")
 
 [node name="Cylinder_001" parent="alien_artifact" index="1"]
-surface_material_override/0 = ExtResource("4_3eanp")
+surface_material_override/0 = ExtResource("4_8qgop")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
