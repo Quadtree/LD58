@@ -468,6 +468,10 @@ ApparentDirection = 2.0
 transform = Transform3D(5.28485e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, 5.28485e-08, 7.45655, 2.24297, -0.178894)
 ApparentDirection = 3.0
 
+[node name="DropConsole" parent="main_structure/Room3" instance=ExtResource("18_gqor7")]
+transform = Transform3D(-0.377227, 0, -0.926121, 0, 1, 0, 0.926121, 0, -0.377227, 7.61281, 2.24297, 1.80156)
+ApparentDirection = 2.0
+
 [node name="Room4" type="Node3D" parent="main_structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91115, 2.68335, 32.3883)
 

@@ -12,6 +12,7 @@ public partial class StoreroomDispenser : MeshInstance3D
             var n = GD.Load<PackedScene>("res://actors/Artifact3.tscn").Instantiate<Node3D>();
             GetTree().CurrentScene.AddChild(n);
             n.GlobalPosition = GlobalPosition;
+            DispenseCharge = 0;
         }
     }
 
@@ -36,5 +37,7 @@ public partial class StoreroomDispenser : MeshInstance3D
                 }
             }
         }
+
+        if (GetTree().CurrentScene.FindChildByName<ButtonConsole>("DropConsole").IsPressed) Dispense();
     }
 }
