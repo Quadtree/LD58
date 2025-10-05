@@ -25,7 +25,12 @@ public static class LD58Util
 
         b.BodyEntered += (v1) =>
         {
-            Util.SpawnOneShotSound(Util.Choice(BonkSFX), b, b.GlobalPosition, Util.Clamp(b.LinearVelocity.Length() * 8 - 20, -20, 10));
+            var vel = b.LinearVelocity.Length();
+            var volume = Util.Clamp(b.LinearVelocity.Length() * 12 - 40, -40, 10);
+
+            GD.Print($"Bonk! vel={vel} volume={volume}");
+
+            Util.SpawnOneShotSound(Util.Choice(BonkSFX), b, b.GlobalPosition, volume, 2);
         };
     }
 }
