@@ -106,7 +106,32 @@ public partial class AiScreen : Node3D
 
     void ConvoWhatIsThisPlace()
     {
+        ShowMessage("This is Station 9. It's completely different from Stations 7 and 8.",
+            "Are we in space?", ConvoAreWeInSpace,
+            "What happened on Station 7?", ConvoStation7,
+            "What happened on Station 8?", ConvoStation8,
+        );
+    }
 
+    void ConvoAreWeInSpace()
+    {
+        ShowMessage("I can neither confirm nor deny that.",
+            "OK...", ConvoWhatIsThisPlace
+        );
+    }
+
+    void ConvoStation7()
+    {
+        ShowMessage("Some person escaped from a specimen tank. Honestly, the security of that station could have been better. That would never have happened on Station 9.",
+            "OK...", ConvoWhatIsThisPlace
+        );
+    }
+
+    void ConvoStation8()
+    {
+        ShowMessage("Some persistent person managed to defeat all the station's bots, even though they kept putting the person back in their pod. Those bots went too easy on 'em. I won't make a similar mistake.",
+            "OK...", ConvoWhatIsThisPlace
+        );
     }
 
     void ConvoHowDoIGetOutOfHere()
@@ -158,6 +183,8 @@ public partial class AiScreen : Node3D
 
     void ConvoWhoAreYou()
     {
-        ShowMessage("I am Station 9's automated management system. I manage all the systems on Station 9.", "Right...", ConvoMainMenu);
+        ShowMessage("I am Station 9's automated management system. I manage all the systems on Station 9.",
+            "Right...", ConvoMainMenu
+        );
     }
 }
