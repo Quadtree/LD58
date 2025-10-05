@@ -1,5 +1,4 @@
 # TODO
-- Start sequence
 - Sound
 - Final graphics
 - Failsafe in case something falls through the floor
@@ -13,3 +12,4 @@
 - Win when you place all 3 artifacts in portal
 - Mirrors in room 2
 - Buttons to control the robot
+- Start sequence
