@@ -454,18 +454,18 @@ transform = Transform3D(-3.09507e-08, -0.706143, 0.708069, -3.08665e-08, 0.70806
 fov = 100.0
 
 [node name="UpConsole" parent="main_structure/Room3" instance=ExtResource("18_gqor7")]
-transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 7.45655, 2.24297, -4.44336)
+transform = Transform3D(5.28485e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, 5.28485e-08, 7.45655, 2.24297, -1.32411)
 
 [node name="LeftConsole" parent="main_structure/Room3" instance=ExtResource("18_gqor7")]
-transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 7.45655, 2.24297, -2.56502)
+transform = Transform3D(5.28485e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, 5.28485e-08, 7.45655, 2.24297, -0.745928)
 ApparentDirection = 1.0
 
 [node name="DownConsole" parent="main_structure/Room3" instance=ExtResource("18_gqor7")]
-transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 7.45655, 2.24297, -3.49999)
+transform = Transform3D(5.28485e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, 5.28485e-08, 7.45655, 2.24297, 0.391273)
 ApparentDirection = 2.0
 
 [node name="RightConsole" parent="main_structure/Room3" instance=ExtResource("18_gqor7")]
-transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 7.45655, 2.24297, 1.59088)
+transform = Transform3D(5.28485e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, 5.28485e-08, 7.45655, 2.24297, -0.178894)
 ApparentDirection = 3.0
 
 [node name="Room4" type="Node3D" parent="main_structure"]
