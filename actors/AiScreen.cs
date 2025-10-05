@@ -111,7 +111,49 @@ public partial class AiScreen : Node3D
 
     void ConvoHowDoIGetOutOfHere()
     {
+        ShowMessage("I guess if you wanted to leave the comfort of station 9 for parts unknown, you could use the portal.",
+            "How do I do that?", ConvoHowDoIActivatePortal,
+            "Let's talk about something else.", ConvoMainMenu
+        );
+    }
 
+    void ConvoHowDoIActivatePortal()
+    {
+        ShowMessage("You'll need three artifact pieces. Become a collector and grab all three of them. They look like little cubes with glowing disks set into them. There's a yellow one, a cyan one, and a red one.",
+            "And then what?", ConvoHowDoIActivatePortal2,
+            "Let's talk about something else.", ConvoMainMenu
+        );
+    }
+
+    void ConvoHowDoIActivatePortal2()
+    {
+        ShowMessage("Put them in the portal room. Then step into the portal.",
+            "And then what?", ConvoHowDoIActivatePortal3,
+            "Let's talk about something else.", ConvoMainMenu
+        );
+    }
+
+    void ConvoHowDoIActivatePortal3()
+    {
+        ShowMessage("I do not know. The portal probably leads to Station 10 or something.",
+            "And then what?", ConvoHowDoIActivatePortal4,
+            "Let's talk about something else.", ConvoMainMenu
+        );
+    }
+
+    void ConvoHowDoIActivatePortal4()
+    {
+        ShowMessage("You'll have to wait for a future... uhh... installment to find out what happens on Station 10. Don't worry about it.",
+            "And then what?", ConvoHowDoIActivatePortal5,
+            "Let's talk about something else.", ConvoMainMenu
+        );
+    }
+
+    void ConvoHowDoIActivatePortal5()
+    {
+        ShowMessage("Stop saying \"And then what\"!",
+            "Let's talk about something else.", ConvoMainMenu
+        );
     }
 
     void ConvoWhoAreYou()
