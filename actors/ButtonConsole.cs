@@ -16,17 +16,19 @@ public partial class ButtonConsole : Node3D
         bb.Rotation = new Vector3(
             bb.Rotation.X,
             bb.Rotation.Y,
-            ApparentDirection * Mathf.Pi / 2 * ApparentDirection
+            ApparentDirection * Mathf.Pi / 2
         );
     }
 
     public void Pressed()
     {
-        GD.Print($"{this} Pressed");
+        GD.Print($"{this.Name} Pressed");
+        IsPressed = true;
     }
 
     public void Released()
     {
         GD.Print($"{this} Released");
+        IsPressed = false;
     }
 }

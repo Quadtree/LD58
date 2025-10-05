@@ -25,6 +25,12 @@ public partial class Robot : CharacterBody3D
             );
         }
 
+        if (GetTree().CurrentScene.FindChildByName<ButtonConsole>("LeftConsole").IsPressed) movementVector.X = -1;
+        if (GetTree().CurrentScene.FindChildByName<ButtonConsole>("RightConsole").IsPressed) movementVector.X = 1;
+        if (GetTree().CurrentScene.FindChildByName<ButtonConsole>("UpConsole").IsPressed) movementVector.Y = 1;
+        if (GetTree().CurrentScene.FindChildByName<ButtonConsole>("DownConsole").IsPressed) movementVector.Y = -1;
+
+
         Velocity = (GlobalTransform.Basis.Z * -movementVector.Y) * 10 * MovementSpeed;
 
         if (Falling) Velocity += Vector3.Down * 20;
