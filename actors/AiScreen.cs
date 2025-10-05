@@ -37,10 +37,7 @@ public partial class AiScreen : Node3D
     {
         base._Ready();
 
-        ShowMessage("Welcome to station 9. Click one of the options below.",
-            "What is this place?", ConvoWhatIsThisPlace,
-            "How do I get out of here?", ConvoHowDoIGetOutOfHere,
-            "Who are you?", ConvoWhoAreYou);
+        ConvoMainMenu();
     }
 
     double CharacterTypeCharge;
@@ -99,6 +96,14 @@ public partial class AiScreen : Node3D
         }
     }
 
+    void ConvoMainMenu()
+    {
+        ShowMessage("Welcome to station 9. Click one of the options below.",
+            "What is this place?", ConvoWhatIsThisPlace,
+            "How do I get out of here?", ConvoHowDoIGetOutOfHere,
+            "Who are you?", ConvoWhoAreYou);
+    }
+
     void ConvoWhatIsThisPlace()
     {
 
@@ -111,6 +116,6 @@ public partial class AiScreen : Node3D
 
     void ConvoWhoAreYou()
     {
-
+        ShowMessage("I am Station 9's automated management system. I manage all the systems on Station 9.", "Right...", ConvoMainMenu);
     }
 }

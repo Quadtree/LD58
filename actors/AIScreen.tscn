@@ -36,6 +36,8 @@ autowrap_mode = 3
 width = 800.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Option0"]
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Option0/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85239, 0, 0)
@@ -51,6 +53,8 @@ autowrap_mode = 3
 width = 800.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Option1"]
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Option1/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85239, 0, 0)
@@ -66,6 +70,8 @@ autowrap_mode = 3
 width = 800.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Option2"]
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Option2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85239, 0, 0)
@@ -81,6 +87,8 @@ autowrap_mode = 3
 width = 800.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Option3"]
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Option3/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85239, 0, 0)
