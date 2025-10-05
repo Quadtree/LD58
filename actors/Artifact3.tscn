@@ -11,6 +11,7 @@ size = Vector3(0.2, 0.2, 0.2)
 points = PackedVector3Array(0.1, 0.1, 0.1, 0.1, 0.1, -0.1, -0.1, 0.1, 0.1, 0.1, -0.1, 0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1)
 
 [node name="Artifact3" type="RigidBody3D"]
+continuous_cd = true
 script = ExtResource("1_bkupn")
 ArtifactID = 3
 

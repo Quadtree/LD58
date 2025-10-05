@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=60 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -29,6 +29,9 @@ glow_enabled = true
 
 [sub_resource type="PrismMesh" id="PrismMesh_dfir2"]
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqor7"]
+albedo_color = Color(0.324203, 0.324203, 0.324203, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfir2"]
 albedo_color = Color(1, 0, 0, 1)
@@ -201,6 +204,9 @@ mesh = SubResource("PrismMesh_dfir2")
 
 [node name="main_structure" parent="." instance=ExtResource("1_q1grt")]
 
+[node name="MainStructure" parent="main_structure" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gqor7")
+
 [node name="Room1" type="Node3D" parent="main_structure"]
 
 [node name="LightFixture" parent="main_structure/Room1" instance=ExtResource("2_hlrh3")]
@@ -314,6 +320,7 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+continuous_cd = true
 script = ExtResource("11_kvuol")
 ArtifactID = 2
 
@@ -497,6 +504,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("7_6m16o")
 
+[editable path="main_structure"]
 [editable path="main_structure/Room1/Cabinet/LaserPart"]
 [editable path="main_structure/Room1/Cabinet2/LaserPart2"]
 [editable path="main_structure/Room1/Cabinet3/LaserPart3"]

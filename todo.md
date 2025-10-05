@@ -1,5 +1,4 @@
 # TODO
-- Mirrors in room 2
 - Buttons to control the robot
 - Failsafe in case something falls through the floor
 - Start sequence
@@ -13,3 +12,4 @@
 - Dropper in supply room for room 3
 - Portal room
 - Win when you place all 3 artifacts in portal
+- Mirrors in room 2
