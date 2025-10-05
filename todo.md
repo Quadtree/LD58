@@ -1,9 +1,8 @@
 # TODO
-- Buttons to control the robot
-- Failsafe in case something falls through the floor
 - Start sequence
 - Sound
 - Final graphics
+- Failsafe in case something falls through the floor
 - Optional VR support
 
 # DONE
@@ -13,3 +12,4 @@
 - Portal room
 - Win when you place all 3 artifacts in portal
 - Mirrors in room 2
+- Buttons to control the robot
