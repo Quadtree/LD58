@@ -1,5 +1,4 @@
 # TODO
-- Final graphics: Artifacts
 - Final graphics: Laser parts
 - AI hints in room 1
 - Failsafe in case something falls through the floor
@@ -15,3 +14,4 @@
 - Buttons to control the robot
 - Start sequence
 - Sound: Door open, laser assemble
+- Final graphics: Artifacts
