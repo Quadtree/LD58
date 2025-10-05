@@ -1,4 +1,7 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://bokkbmd0v8a8j"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bokkbmd0v8a8j"]
+
+[ext_resource type="FontFile" uid="uid://dm87822siq02e" path="res://fonts/Inconsolata-VariableFont_wdth,wght.ttf" id="1_ucu6q"]
 
 [resource]
+font = ExtResource("1_ucu6q")
 font_size = 120
