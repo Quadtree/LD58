@@ -1,5 +1,6 @@
 # TODO
 - Final graphics
+- AI hints in room 1
 - Failsafe in case something falls through the floor
 - Optional VR support
 
