@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://2fkt6h8iw82o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o56vq"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.28
+
+[sub_resource type="QuadMesh" id="QuadMesh_o56vq"]
+material = SubResource("StandardMaterial3D_o56vq")
+size = Vector2(4, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2eo3u"]
+size = Vector3(4, 0.3, 0.1)
+
+[node name="AiScreen" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_o56vq")
+
+[node name="Response" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8677, 1.17005, 0.0195878)
+modulate = Color(0.270588, 1, 0.239216, 1)
+text = "Lorum ipsum ete. hey oh i see what's going on ok let's check the line width. hmmm it's a little off."
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 750.0
+
+[node name="Option0" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85383, -0.0409436, 0.0195878)
+modulate = Color(0.270588, 1, 0.239216, 1)
+text = "- Option A"
+outline_size = 0
+horizontal_alignment = 0
+autowrap_mode = 3
+width = 800.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Option0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Option0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85239, 0, 0)
+shape = SubResource("BoxShape3D_2eo3u")
+
+[node name="Option1" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85383, -0.368292, 0.0195878)
+modulate = Color(0.270588, 1, 0.239216, 1)
+text = "- Option A"
+outline_size = 0
+horizontal_alignment = 0
+autowrap_mode = 3
+width = 800.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Option1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Option1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85239, 0, 0)
+shape = SubResource("BoxShape3D_2eo3u")
+
+[node name="Option2" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85383, -0.69766, 0.0195878)
+modulate = Color(0.270588, 1, 0.239216, 1)
+text = "- Option A"
+outline_size = 0
+horizontal_alignment = 0
+autowrap_mode = 3
+width = 800.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Option2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Option2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85239, 0, 0)
+shape = SubResource("BoxShape3D_2eo3u")
+
+[node name="Option3" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85383, -1.03165, 0.0195878)
+modulate = Color(0.270588, 1, 0.239216, 1)
+text = "- Option A"
+outline_size = 0
+horizontal_alignment = 0
+autowrap_mode = 3
+width = 800.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Option3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Option3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85239, 0, 0)
+shape = SubResource("BoxShape3D_2eo3u")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bajwgcfe7i41q"]
+[gd_scene load_steps=79 format=3 uid="uid://bajwgcfe7i41q"]
 
 [ext_resource type="PackedScene" uid="uid://drq5s537odo51" path="res://meshes/main_structure.glb" id="1_q1grt"]
 [ext_resource type="Script" uid="uid://8ykl88mo61ps" path="res://maps/Default.cs" id="1_vnah1"]
@@ -24,6 +24,8 @@
 [ext_resource type="Material" uid="uid://d3tp3d78h765b" path="res://materials/ArtifactBody.tres" id="16_t4pk5"]
 [ext_resource type="Material" uid="uid://d3h26pr1akmby" path="res://materials/Artifact2Glowy.tres" id="17_ktqxq"]
 [ext_resource type="PackedScene" uid="uid://bix5saaicapos" path="res://actors/ButtonConsole.tscn" id="18_gqor7"]
+[ext_resource type="PackedScene" uid="uid://2fkt6h8iw82o" path="res://actors/AIScreen.tscn" id="25_7t7x6"]
+[ext_resource type="Script" uid="uid://dghc2hvgegp1" path="res://actors/AiScreen.cs" id="26_bu02h"]
 
 [sub_resource type="Environment" id="Environment_6jlvn"]
 background_mode = 1
@@ -616,6 +618,10 @@ offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("7_6m16o")
+
+[node name="AiScreen" parent="." instance=ExtResource("25_7t7x6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.0173, 1.61865, 29.8236)
+script = ExtResource("26_bu02h")
 
 [editable path="main_structure"]
 [editable path="main_structure/Room1/Cabinet/LaserPart"]
