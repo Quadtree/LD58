@@ -68,6 +68,25 @@ public partial class AiScreen : Node3D
                 op.Visible = true;
             }
         }
+
+        Label3D hoveredOption = null;
+
+        var res = Picking.PickAtCursor(this, collisionMask: uint.MaxValue);
+        if (res.Hit?.FindParentByType<AiScreen>() != null)
+        {
+            if (res.Hit?.FindParentByPredicate<Label3D>(it => $"{it.Name}".StartsWith("Option")) is Label3D l3)
+            {
+                hoveredOption = l3;
+            }
+        }
+
+        var defColor = this.FindChildByName<Label3D>($"Response").Modulate;
+
+        for (var i = 0; i < 4; ++i)
+        {
+            var op = this.FindChildByName<Label3D>($"Option{i}");
+            op.Modulate = hoveredOption == op ? Colors.White : defColor;
+        }
     }
 
     void ConvoWhatIsThisPlace()
